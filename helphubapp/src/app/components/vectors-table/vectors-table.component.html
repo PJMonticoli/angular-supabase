@@ -16,7 +16,9 @@
 
           </div>
         
-
+        
+          <mat-paginator class="bg-dark text-white" [length]="vectors.length" [pageSize]="pageSize" [pageIndex]="page" (page)="onPageChange($event)">
+          </mat-paginator>
           <table class="table table-dark table-hover">
             <thead>
               <tr>
@@ -27,7 +29,7 @@
               </tr>
             </thead>
             <tbody>
-              @for(fila of vectors; track fila){
+              @for(fila of vectors.slice(page * pageSize, (page + 1) * pageSize); track fila){
               <tr>
                 <td>{{ fila.pregunta }}</td>
                 <td>{{ fila.respuesta }}</td>
