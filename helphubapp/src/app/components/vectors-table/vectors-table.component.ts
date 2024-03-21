@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { SupabaseService } from '../../services/supabase.service';
 import { RouterLink } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SidenavComponent } from '../sidenav/sidenav.component';
 
 @Component({
   selector: 'app-vectors-table',
   standalone: true,
-  imports: [RouterLink,MatPaginatorModule],
+  imports: [RouterLink,MatPaginatorModule,SidenavComponent],
   templateUrl: './vectors-table.component.html',
   styleUrl: './vectors-table.component.css'
 })
