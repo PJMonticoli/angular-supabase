@@ -1,21 +1,24 @@
+
 <div class="bg-dark">
-    <a class="btn btn-primary bi bi-list" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-        Menu
-      </a>
-      <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-          <h2 class="offcanvas-title text-white" id="offcanvasExampleLabel">HelpHub</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-              Gestionar
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/vectors_table">Listado</a></li>
-            </ul>
-          </div>
-        </div>
+    <button class="btn btn-secondary bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></button>
+
+    <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title text-white" id="offcanvasExampleLabel">HelpHub</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
+      <div class="offcanvas-body">
+        <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold" routerLink="">
+            <i class="bi bi-house"></i> Inicio
+        </button>
+        <br>
+        <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-clipboard-data"></i> Gestionar
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/vectors_table">Listado</a></li>
+        </ul>
+    </div>
+    
+    </div>
 </div>
