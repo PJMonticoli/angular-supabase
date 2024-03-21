@@ -1,0 +1,22 @@
+.fondo{
+    background-image: url('../../../assets/img/logo6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.titulo {
+    font-family: "Lora", serif;
+    font-weight: 700;
+  }
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active {
+  filter: none;
+  background-color: #4ea15c;
+}
+.btn-primary[disabled]{
+  background-color: grey;
+}
