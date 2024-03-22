@@ -1,8 +1,16 @@
 <div class="bg-dark position-relative d-flex justify-content-between align-items-center">
-    <button class="btn btn-secondary bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></button>
+    <button class="btn btn-outline-light bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></button>
     <div class="d-flex">
-        <button class="btn btn-outline-success bi bi-box-arrow-left align-self-stretch ms-2" type="button" aria-controls="offcanvasScrolling" routerLink="/user-login"> Log-In</button>
-        <button class="btn btn-outline-primary bi bi-person-add align-self-stretch mx-2" type="button" aria-controls="offcanvasScrolling" routerLink="/user-register"> Sign-Up</button>
+        <div class="dropdown">
+            <button class="btn btn-outline-info dropdown-toggle bi bi-person-gear mx-2" type="button" data-bs-toggle="dropdown" aria-controls="offcanvasScrolling">
+              
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" routerLink="/user-login">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" href="#" routerLink="/user-register">Registrarse</a></li>
+            </ul>
+          </div>
+      
     </div>
 </div>
 
