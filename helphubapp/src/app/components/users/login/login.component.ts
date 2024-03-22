@@ -54,7 +54,7 @@ export class LoginComponent {
       const email = this.formulario.value.email;
       const password = this.formulario.value.password;
 
-      this.servicioSupabase.signUp(email, password).subscribe({
+      this.servicioSupabase.signIn(email, password).subscribe({
         next: () => {
           this.toastr.success("Inicio Sesión con exitó");
           this.router.navigate(['']);

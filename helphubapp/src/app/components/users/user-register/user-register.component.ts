@@ -58,7 +58,7 @@ export class UserRegisterComponent {
       this.servicioSupabase.signUp(email, password).subscribe({
         next: () => {
           this.toastr.success("Usuario registrado con exitó");
-          this.router.navigate(['']);
+          this.router.navigate(['/user-login']);
         },
         error: (err) => {
           this.toastr.error("Error al registrarse, revise y complete todos los campos!");

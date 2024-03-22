@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
-import { SupabaseClient, createClient } from '@supabase/supabase-js';
+import { AuthTokenResponsePassword, SupabaseClient, createClient } from '@supabase/supabase-js';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -36,5 +37,20 @@ export class SupabaseService {
     };
 
     return this.http.post(`${this.apiUrl}/auth/v1/signup`, body, { headers });
+  }
+
+
+  signIn(email: string, password: string) {
+    const headers = new HttpHeaders({
+      'apikey': this.apiKey,
+      'Content-Type': 'application/json'
+    });
+  
+    const body = {
+      email: email,
+      password: password
+    };
+  
+    return this.http.post(`${this.apiUrl}/auth/v1/token?grant_type=password`, body, { headers });
   }
 }
