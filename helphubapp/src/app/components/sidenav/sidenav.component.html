@@ -1,26 +1,30 @@
-<div class="bg-dark position-relative">
+<div class="bg-dark position-relative d-flex justify-content-between align-items-center">
     <button class="btn btn-secondary bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></button>
+    <div class="d-flex">
+        <button class="btn btn-outline-success bi bi-box-arrow-left align-self-stretch ms-2" type="button" aria-controls="offcanvasScrolling" routerLink="/user-login"> Log-In</button>
+        <button class="btn btn-outline-primary bi bi-person-add align-self-stretch mx-2" type="button" aria-controls="offcanvasScrolling" routerLink="/user-register"> Sign-Up</button>
+    </div>
+</div>
 
-    <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-      <div class="offcanvas-header">
+<div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
         <h2 class="offcanvas-title text-white" id="offcanvasExampleLabel" data-bs-dismiss="offcanvas" aria-label="Close" style="cursor: pointer;">HelpHub</h2>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
+    </div>
+    <div class="offcanvas-body">
         <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold" routerLink="">
             <i class="bi bi-house"></i> Inicio
         </button>
-        
         <br>
-        <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown">
-            <i class="bi bi-clipboard-data"></i> Gestionar
+        <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold" routerLink="/vectors_table">
+            <i class="bi bi-house"></i> Gestionar Listado
         </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/vectors_table">Listado</a></li>
-        </ul>
-        
-       <!-- Botones "Registrarse" e "Iniciar Sesión" en la parte inferior de la pantalla y en la misma línea -->
-<div class="d-flex justify-content-between align-items-center position-absolute bottom-0 start-50 translate-middle-x w-100">
+    </div>
+</div>
+
+
+
+<!-- <div class="d-flex justify-content-between align-items-center position-absolute bottom-0 start-50 translate-middle-x w-100">
     <button class="btn btn-outline-success btn-block btn-large text-uppercase fw-semibold mx-2" routerLink="/user-login">
         <i class="bi bi-box-arrow-in-left"></i> Iniciar Sesión
     </button>
@@ -28,7 +32,4 @@
         <i class="bi bi-person-add"></i> Registrarse
     </button>
   </div>
-  
-      </div>
-    </div>
-</div>
+   -->
