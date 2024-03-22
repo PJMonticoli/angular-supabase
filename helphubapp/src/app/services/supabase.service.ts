@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
@@ -22,5 +22,19 @@ export class SupabaseService {
       'apikey': this.apiKey
     };
     return this.http.get(`${this.apiUrl}/rest/v1/vectors_table`, { headers });
+  }
+
+  signUp(email: string, password: string) {
+    const headers = new HttpHeaders({
+      'apikey': this.apiKey,
+      'Content-Type': 'application/json'
+    });
+
+    const body = {
+      email: email,
+      password: password
+    };
+
+    return this.http.post(`${this.apiUrl}/auth/v1/signup`, body, { headers });
   }
 }
