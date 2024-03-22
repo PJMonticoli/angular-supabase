@@ -4,12 +4,15 @@
 
     <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
       <div class="offcanvas-header">
-        <h2 class="offcanvas-title text-white" id="offcanvasExampleLabel">HelpHub</h2>
+        <h2 class="offcanvas-title text-white" id="offcanvasExampleLabel" data-bs-dismiss="offcanvas" aria-label="Close" style="cursor: pointer;">HelpHub</h2>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold" routerLink="">
             <i class="bi bi-house"></i> Inicio
+        </button>
+        <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold mt-2" routerLink="/user-register">
+            <i class="bi bi-person-add"></i> Registrarse
         </button>
         <br>
         <button class="btn btn-outline-secondary btn-block btn-large text-uppercase fw-semibold dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown">

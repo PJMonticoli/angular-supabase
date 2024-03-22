@@ -3,11 +3,13 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { SupabaseService } from '../../../services/supabase.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { SidenavComponent } from '../../sidenav/sidenav.component';
 
 @Component({
   selector: 'app-user-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,SidenavComponent],
   templateUrl: './user-register.component.html',
   styleUrl: './user-register.component.css'
 })
@@ -20,7 +22,8 @@ export class UserRegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,
-    private router : Router
+    private router : Router,
+    private toastr : ToastrService
   ) {
     this.formulario = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -54,10 +57,11 @@ export class UserRegisterComponent {
 
       this.servicioSupabase.signUp(email, password).subscribe({
         next: () => {
-          alert("Bienvenido")
+          this.toastr.success("Usuario registrado con exitó");
+          this.router.navigate(['']);
         },
         error: (err) => {
-          alert("Erorr")
+          this.toastr.error("Error al registrarse, revise y complete todos los campos!");
           console.log(err);
         }
       });
