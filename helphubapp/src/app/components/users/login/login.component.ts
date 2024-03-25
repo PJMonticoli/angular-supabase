@@ -4,11 +4,11 @@ import { SupabaseService } from '../../../services/supabase.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { SidenavComponent } from '../../sidenav/sidenav.component';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [SidenavComponent,ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

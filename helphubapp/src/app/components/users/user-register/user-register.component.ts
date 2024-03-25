@@ -4,12 +4,12 @@ import { SupabaseService } from '../../../services/supabase.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { SidenavComponent } from '../../sidenav/sidenav.component';
+
 
 @Component({
   selector: 'app-user-register',
   standalone: true,
-  imports: [ReactiveFormsModule,SidenavComponent],
+  imports: [ReactiveFormsModule],
   templateUrl: './user-register.component.html',
   styleUrl: './user-register.component.css'
 })
