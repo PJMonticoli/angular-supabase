@@ -12,15 +12,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SidenavComponent{
 
-  private servicioSupabase = Inject(SupabaseService);
+
    constructor(private toastr : ToastrService){}
   cerrarSesion(){
-     this.servicioSupabase.logout().then((response : any) => {
-      console.log(response);
-      this.toastr.success("Cerró Sesión con éxito");
-    }).catch((error : any) => {
-      console.error(error);
-      this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
-    });
+    //  this.servicioSupabase.logout().then((response : any) => {
+    //   console.log(response);
+    //   this.toastr.success("Cerró Sesión con éxito");
+    // }).catch((error : any) => {
+    //   console.error(error);
+    //   this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
+    // });
   }
 }
