@@ -56,7 +56,7 @@ export class LoginComponent {
 
       this.servicioSupabase.signIn(email, password).subscribe({
         next: () => {
-          this.toastr.success("Inicio Sesión con exitó");
+          this.toastr.success("Inicio Sesión con éxito");
           this.router.navigate(['']);
         },
         error: (err) => {
