@@ -37,13 +37,4 @@ export class VectorsTableComponent implements OnInit {
     return this.vectors.slice(startIndex, startIndex + this.pageSize);
   } 
 
-    cerrarSesion(){
-     this.supabaseService.logout().then(response => {
-      console.log(response);
-      this.toastr.success("Cerró Sesión con éxito");
-    }).catch(error => {
-      console.error(error);
-      this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
-    });
-  }
 }
