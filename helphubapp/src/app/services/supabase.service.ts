@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
-import { AuthTokenResponsePassword, SupabaseClient, createClient } from '@supabase/supabase-js';
-import { Observable } from 'rxjs';
+import { SupabaseClient, createClient } from '@supabase/supabase-js';
+
 
 
 @Injectable({
@@ -52,5 +52,9 @@ export class SupabaseService {
     };
   
     return this.http.post(`${this.apiUrl}/auth/v1/token?grant_type=password`, body, { headers });
+  }
+
+  logout(){
+    return this.s_client.auth.signOut();
   }
 }

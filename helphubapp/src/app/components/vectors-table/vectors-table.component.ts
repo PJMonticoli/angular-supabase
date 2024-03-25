@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SupabaseService } from '../../services/supabase.service';
 import { RouterLink } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class VectorsTableComponent implements OnInit {
   vectors: any[] = [];
   page: number = 0; 
   pageSize: number = 7; 
-  constructor(private supabaseService: SupabaseService) { }
+  constructor(private supabaseService : SupabaseService,private toastr : ToastrService){}
 
   ngOnInit(): void {
     this.fetchVectors();
@@ -35,4 +36,14 @@ export class VectorsTableComponent implements OnInit {
     const startIndex = this.page * this.pageSize;
     return this.vectors.slice(startIndex, startIndex + this.pageSize);
   } 
+
+    cerrarSesion(){
+     this.supabaseService.logout().then(response => {
+      console.log(response);
+      this.toastr.success("Cerró Sesión con éxito");
+    }).catch(error => {
+      console.error(error);
+      this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
+    });
+  }
 }
