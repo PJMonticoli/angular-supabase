@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SupabaseService } from '../../../services/supabase.service';
 import { Subscription } from 'rxjs';
@@ -18,6 +18,7 @@ export class LoginComponent {
   fieldTextType: boolean = false;
   @Input() modalId: number = 1;
   mostrarCheckboxTerminos: boolean = false;
+  @Output() userAuthenticated = new EventEmitter<any>();
   constructor(
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,
@@ -49,14 +50,33 @@ export class LoginComponent {
     this.fieldTextType = !this.fieldTextType;
   }
 
+  // iniciarSesion() {
+  //   if (this.formulario.valid) {
+  //     const email = this.formulario.value.email;
+  //     const password = this.formulario.value.password;
+
+  //     this.servicioSupabase.signIn(email, password).subscribe({
+  //       next: (response: any) => {
+  //         this.toastr.success("Inicio Sesión con éxito");
+  //         console.log(response.user);
+  //         this.router.navigate(['']);
+  //       },
+  //       error: (err) => {
+  //         this.toastr.error("Error al inicar sesión, revise y complete todos los campos!");
+  //         console.log(err);
+  //       }
+  //     });
+  //   }
   iniciarSesion() {
     if (this.formulario.valid) {
       const email = this.formulario.value.email;
       const password = this.formulario.value.password;
-
+  
       this.servicioSupabase.signIn(email, password).subscribe({
-        next: () => {
+        next: (response: any) => {
           this.toastr.success("Inicio Sesión con éxito");
+          this.servicioSupabase.setUser(response.user.id); 
+          console.log(response.user.id);
           this.router.navigate(['']);
         },
         error: (err) => {
@@ -66,4 +86,6 @@ export class LoginComponent {
       });
     }
   }
-}
+  
+  }
+
