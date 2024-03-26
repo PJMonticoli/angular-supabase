@@ -3,12 +3,13 @@ import { SupabaseService } from '../../services/supabase.service';
 import { RouterLink } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
+import { InsertVectorsComponent } from '../insert-vectors/insert-vectors.component';
 
 
 @Component({
   selector: 'app-vectors-table',
   standalone: true,
-  imports: [RouterLink,MatPaginatorModule],
+  imports: [RouterLink,MatPaginatorModule,InsertVectorsComponent],
   templateUrl: './vectors-table.component.html',
   styleUrl: './vectors-table.component.css'
 })
