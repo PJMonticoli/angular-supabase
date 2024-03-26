@@ -1,0 +1,50 @@
+<button class="btn btn-outline-success bi bi-pencil-square ms-2"  data-bs-toggle="modal" 
+attr.data-bs-target="#modal{{vector.id}}"> Editar</button>
+
+<!-- Modal -->
+<div class="modal fade" [id]="'modal'+vector.id" tabindex="-1" aria-labelledby="exampleModalLabel" 
+aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Actualizar Registro</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formulario">
+          <div class="mb-3">
+            <label for="pregunta" class="form-label">Pregunta</label>
+            <textarea class="form-control" id="pregunta" formControlName="pregunta"
+              [class.is-invalid]="controlPregunta.touched && controlPregunta.hasError('required')"></textarea>
+              @if (controlPregunta.touched && controlPregunta.hasError('required')) {
+                <p class="invalid-feedback"> Campo Pregunta es requerido</p>
+              }
+          </div>
+          <div class="mb-3">
+            <label for="respuesta" class="form-label">Respuesta</label>
+            <textarea class="form-control" id="respuesta" formControlName="respuesta"
+              [class.is-invalid]="controlRespuesta.touched && controlRespuesta.hasError('required')"></textarea>
+              @if (controlRespuesta.touched && controlRespuesta.hasError('required')) {
+                <p class="invalid-feedback"> Campo Respuesta es requerido</p>
+              }
+          </div>
+          <div class="mb-3 d-flex align-items-center">
+            <input #estado type="checkbox" name="estado" class="form-check-input" formControlName="estado" id="estado" />
+            <label for="estado" class="form-label ms-2 mb-0">Estado</label>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-success" (click)="actualizar()" data-bs-dismiss="modal">
+          Actualizar
+       </button>
+       
+        
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" >
+          Cerrar
+        </button>
+      </div>     
+    </div>
+  </div>
+</div>

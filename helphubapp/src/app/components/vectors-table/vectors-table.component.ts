@@ -4,12 +4,13 @@ import { RouterLink } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
 import { InsertVectorsComponent } from '../insert-vectors/insert-vectors.component';
+import { UpdateVectorsComponent } from '../update-vectors/update-vectors.component';
 
 
 @Component({
   selector: 'app-vectors-table',
   standalone: true,
-  imports: [RouterLink,MatPaginatorModule,InsertVectorsComponent],
+  imports: [RouterLink,MatPaginatorModule,InsertVectorsComponent,UpdateVectorsComponent],
   templateUrl: './vectors-table.component.html',
   styleUrl: './vectors-table.component.css'
 })

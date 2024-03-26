@@ -26,6 +26,7 @@
                 <th scope="col">Pregunta</th>
                 <th scope="col">Respuesta</th>
                 <th scope="col">Estado</th>
+                <th scope="col">Acción</th>
 
               </tr>
             </thead>
@@ -37,7 +38,9 @@
                 <td>
                   {{ fila.estado  }}
                 </td>
-
+                <td class="text-center">
+                  <app-update-vectors [vector]="fila" (onUpdate)="fetchVectors()"></app-update-vectors>
+                </td>
               </tr>
               }
             </tbody>
