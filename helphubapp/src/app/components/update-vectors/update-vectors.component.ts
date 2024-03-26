@@ -45,6 +45,8 @@ export class UpdateVectorsComponent implements OnInit,OnDestroy {
   
   
   
+  
+  
   cargar(): void {
     this.formulario.patchValue(this.vector);
   }
