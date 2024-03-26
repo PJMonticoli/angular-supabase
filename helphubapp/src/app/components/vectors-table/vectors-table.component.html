@@ -36,7 +36,7 @@
                 <td>{{ fila.pregunta }}</td>
                 <td>{{ fila.respuesta }}</td>
                 <td>
-                  {{ fila.estado  }}
+                  {{ (fila.estado !== undefined && +fila.estado === 1 ? 'Visble' : 'Oculta') || 'N/A' }}
                 </td>
                 <td class="text-center">
                   <app-update-vectors [vector]="fila" (onUpdate)="fetchVectors()"></app-update-vectors>
