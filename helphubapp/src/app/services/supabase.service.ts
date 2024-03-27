@@ -15,12 +15,15 @@ import { environment } from '../../environments/environment.development';
 export class SupabaseService {
  
   user_id: string | undefined; 
-  private s_client : SupabaseClient;
+  private s_client! : SupabaseClient;
 
 
   constructor(private http: HttpClient) { 
+    //SI yo agrego esta linea en el constructor,al intentar inyectar la dependencia del serivicio SupabaseService en mi componente
+    // sidenav.component.ts, la pagina web deja de cargarse en el navegador al ejecutar en consola "ng serve -o" queda cargando y no finaliza su carga
     this.s_client = createClient(environment.apiUrl,environment.apiKey);
   }
+
 
 
   getVectorsByUserId(user_id: string): Observable<any> {

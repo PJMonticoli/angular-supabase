@@ -12,7 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 export class SidenavComponent{
 
 
-constructor(private toastr: ToastrService) { }
+constructor(private toastr: ToastrService
+  //Si yo aca agrego private servicioSupabase : SupabaseService la pagina no me carga mas 
+  ) { }
 
   cerrarSesion(){
     //  this.servicioSupabase.logout().then((response : any) => {
