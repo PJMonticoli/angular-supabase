@@ -18,6 +18,8 @@
     width: 100%;
     display: block;
     align-items: center;
-    justify-content: center; /* Esto centra el texto horizontalmente */
-    text-align: left; /* Esto alinea el texto a la izquierda */
-}
+    justify-content: center;
+    text-align: left; 
+} 
+
+
