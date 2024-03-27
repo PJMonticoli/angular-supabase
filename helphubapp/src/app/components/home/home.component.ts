@@ -10,5 +10,17 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  scrollToAbout(): void {
+    // Obtenemos la posición de la sección "about"
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      const aboutSectionPosition = aboutSection.offsetTop;
+      
+      // Desplazamiento suave hacia la sección "about"
+      window.scrollTo({
+          top: aboutSectionPosition,
+          behavior: "smooth"
+      });
+    }
+  }
 }
