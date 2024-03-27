@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 
 import { SupabaseClient, createClient } from '@supabase/supabase-js';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 
 
@@ -12,28 +13,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SupabaseService {
-  apiUrl : string = 'https://cinxvmcoxltagqjllntb.supabase.co';
-  apiKey : string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNpbnh2bWNveGx0YWdxamxsbnRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNjg5NDcsImV4cCI6MjAyNTk0NDk0N30.75RrOs3_kXa8VYbJPUW5mP-zIiiw7w7DYrG8jZYodOg';
+ 
   user_id: string | undefined; 
   private s_client : SupabaseClient;
 
 
   constructor(private http: HttpClient) { 
-    this.s_client = createClient(this.apiUrl,this.apiKey);
+    this.s_client = createClient(environment.apiUrl,environment.apiKey);
   }
 
 
   getVectorsByUserId(user_id: string): Observable<any> {
     const headers = {
-      'apikey': this.apiKey,
+      'apikey': environment.apiKey,
     };
-    return this.http.get(`${this.apiUrl}/rest/v1/vectors_table?user_id=eq.${user_id}`, { headers });
+    return this.http.get(`${environment.apiUrl}/rest/v1/vectors_table?user_id=eq.${user_id}`, { headers });
   }
 
   
   signIn(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
-      'apikey': this.apiKey,
+      'apikey': environment.apiKey,
       'Content-Type': 'application/json'
     });
   
@@ -42,7 +42,7 @@ export class SupabaseService {
       password: password
     };
   
-    return this.http.post(`${this.apiUrl}/auth/v1/token?grant_type=password`, body, { headers }).pipe(
+    return this.http.post(`${environment.apiUrl}/auth/v1/token?grant_type=password`, body, { headers }).pipe(
       tap((response: any) => {
         this.setUser(response.user.id); 
       })
@@ -52,7 +52,7 @@ export class SupabaseService {
 
   signUp(email: string, password: string) {
     const headers = new HttpHeaders({
-      'apikey': this.apiKey,
+      'apikey': environment.apiKey,
       'Content-Type': 'application/json'
     });
 
@@ -61,7 +61,7 @@ export class SupabaseService {
       password: password
     };
 
-    return this.http.post(`${this.apiUrl}/auth/v1/signup`, body, { headers });
+    return this.http.post(`${environment.apiUrl}/auth/v1/signup`, body, { headers });
   }
 
 
@@ -94,7 +94,7 @@ export class SupabaseService {
     }
 
     const headers = new HttpHeaders({
-      'apikey': this.apiKey,
+      'apikey': environment.apiKey,
       'Content-Type': 'application/json'
     });
 
@@ -103,7 +103,7 @@ export class SupabaseService {
       user_id: user_id
     };
 
-    return this.http.post(`${this.apiUrl}/rest/v1/vectors_table`, vectorDataWithUserId, { headers });
+    return this.http.post(`${environment.apiUrl}/rest/v1/vectors_table`, vectorDataWithUserId, { headers });
   }
   
   setUser(user_id: string) {
