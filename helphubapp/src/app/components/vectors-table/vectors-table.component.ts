@@ -21,14 +21,20 @@ export class VectorsTableComponent implements OnInit {
   constructor(private supabaseService : SupabaseService,private toastr : ToastrService){}
 
   ngOnInit(): void {
-    this.fetchVectors();
+    this.fetchVectorsForCurrentUser();
   }
 
-  fetchVectors() {
-    this.supabaseService.getVectors().subscribe((data: any) => {
-      this.vectors = data;
-    });
+  fetchVectorsForCurrentUser() {
+    const user_id = this.supabaseService.getUserId();
+    if (user_id) {
+      this.supabaseService.getVectorsByUserId(user_id).subscribe((data: any) => {
+        this.vectors = data;
+      });
+    } else {
+      console.error('User ID not available');
+    }
   }
+
   onPageChange(event: any): void {
     this.page = event.pageIndex;
     this.pageSize = event.pageSize;
@@ -39,12 +45,12 @@ export class VectorsTableComponent implements OnInit {
     return this.vectors.slice(startIndex, startIndex + this.pageSize);
   } 
   cerrarSesion(){
-    //  this.supabaseService.logout().then((response : any) => {
-    //   console.log(response);
-    //   this.toastr.success("Cerró Sesión con éxito");
-    // }).catch((error : any) => {
-    //   console.error(error);
-    //   this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
-    // });
+     this.supabaseService.logout().then((response : any) => {
+      console.log(response);
+      this.toastr.success("Cerró Sesión con éxito");
+    }).catch((error : any) => {
+      console.error(error);
+      this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
+    });
   }
 }

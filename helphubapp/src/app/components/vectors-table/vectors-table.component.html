@@ -4,9 +4,9 @@
         <h1 class="text-center text-uppercase py-3 text-white titulo">Listado de Preguntas y Respuestas</h1>
   
         <div class="text-center">
-          <app-insert-vectors  (onAgregar)="fetchVectors()"></app-insert-vectors >
+          <app-insert-vectors  (onAgregar)="fetchVectorsForCurrentUser()"></app-insert-vectors >
             <button type="button" class="btn btn-outline-info mb-2 ms-2 bi bi-house mt-2" routerLink=""> Home</button>
-            <button type="button" class="btn btn-outline-danger mb-2 ms-2 bi bi-house mt-2" routerLink="" (click)="cerrarSesion()"> Cerrar-Sesión</button>
+            <button type="button" class="btn btn-outline-danger mb-2 ms-2 bi bi-door-closed mt-2" routerLink="" (click)="cerrarSesion()"> Cerrar-Sesión</button>
 
         </div>
         <div class="container">
@@ -39,8 +39,8 @@
                 <td>
                   {{ (fila.estado !== undefined && +fila.estado === 1 ? 'Visble' : 'Oculta') || 'N/A' }}
                 </td>
-                <td class="text-center">
-                  <app-update-vectors [vector]="fila" (onUpdate)="fetchVectors()"></app-update-vectors>
+                <td>
+                  <app-update-vectors [vector]="fila" (onUpdate)="fetchVectorsForCurrentUser()"></app-update-vectors>
                 </td>
               </tr>
               }
