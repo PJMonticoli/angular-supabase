@@ -43,7 +43,9 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
     });
   }
 
-
+  limpiarFormulario() {
+    this.formulario.reset(); 
+  }
 
   get controlPregunta(): FormControl {
     return this.formulario.controls['pregunta'] as FormControl;
@@ -64,7 +66,7 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
       const estado = this.formulario.value.estado;
   
       try {
-        const user_id = this.supabaseService.user_id;
+        const user_id = this.supabaseService.getUserId();
   
         if (!user_id) {
           throw new Error('El usuario no está autenticado.');
@@ -90,6 +92,8 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
       } catch (error: any) { // Añadido el tipo de error
         this.toastr.error(error.message);
       }
+    }else{
+      this.toastr.error('Revise y complete todos los campos!');
     }
   }
   
