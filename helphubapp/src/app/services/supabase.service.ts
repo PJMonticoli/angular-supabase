@@ -117,4 +117,25 @@ export class SupabaseService {
   getUserId(): string | undefined {
     return this.user_id;
   }
+
+
+  // modificar(vectorId: string, vectorDataUpdated: any): Observable<any> {
+  //   const user_id = this.getUserId(); 
+  //   if (!user_id) {
+  //     throw new Error('El usuario no está autenticado.');
+  //   }
+  
+  //   const headers = new HttpHeaders({
+  //     'apikey': environment.apiKey,
+  //     'Content-Type': 'application/json'
+  //   });
+  
+  //   const vectorDataWithUserId = {
+  //     ...vectorDataUpdated,
+  //     user_id: user_id
+  //   };
+  
+  //   return this.http.put(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, vectorDataWithUserId, { headers });
+  // }
+  
 }

@@ -38,10 +38,28 @@ export class UpdateVectorsComponent implements OnInit,OnDestroy {
   }
   
 
-
-  actualizar(): void {
-   
+  actualizarVector(vectorId: string) {
+    // const pregunta = this.formulario.value.pregunta;
+    // const respuesta = this.formulario.value.respuesta;
+    // const estado = this.formulario.value.estado;
+    // const vectorData = {
+    //   pregunta: pregunta,
+    //   respuesta: respuesta,
+    //   estado: estado
+    // };
+    // this.servicioSupabase.modificar(vectorId, vectorData)
+    //   .subscribe({
+    //     next: (response: any) => {
+    //       this.toastr.success('Actualizo el registro con éxito');
+    //       console.log(response);
+    //     },
+    //     error: (err: any) => {
+    //       this.toastr.error('Error al actualizar registro');
+    //       console.error(err);
+    //     }
+    //   });
   }
+  
   
   
   
