@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
 
-import { SupabaseClient, createClient } from '@supabase/supabase-js';
+import { SupabaseClient,createClient } from '@supabase/supabase-js'; // Asegúrate de importar SupabaseAuthClient
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
+
 
 
 
@@ -21,7 +22,8 @@ export class SupabaseService {
   constructor(private http: HttpClient) { 
     //SI yo agrego esta linea en el constructor,al intentar inyectar la dependencia del serivicio SupabaseService en mi componente
     // sidenav.component.ts, la pagina web deja de cargarse en el navegador al ejecutar en consola "ng serve -o" queda cargando y no finaliza su carga
-    this.s_client = createClient(environment.apiUrl,environment.apiKey);
+   //this.s_client = createClient(environment.apiUrl,environment.apiKey);
+
   }
 
 
@@ -66,7 +68,6 @@ export class SupabaseService {
 
     return this.http.post(`${environment.apiUrl}/auth/v1/signup`, body, { headers });
   }
-
 
   logout(){
     return this.s_client.auth.signOut();

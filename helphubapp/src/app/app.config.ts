@@ -8,7 +8,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { provideToastr } from 'ngx-toastr';
+import { SupabaseService } from './services/supabase.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(),provideHttpClient(withFetch()), provideAnimationsAsync(), provideAnimationsAsync(),provideAnimations(),provideToastr()]
+  providers: [
+    provideRouter(routes), 
+    provideClientHydration(),
+    provideHttpClient(withFetch()), 
+    provideAnimationsAsync(), 
+    provideAnimationsAsync(),
+    provideAnimations(),
+    provideToastr()]
 };

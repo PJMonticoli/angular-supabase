@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,17 +13,17 @@ import { ToastrService } from 'ngx-toastr';
 export class SidenavComponent{
 
 
-constructor(private toastr: ToastrService
+constructor(private toastr: ToastrService,private servicioSupabase : SupabaseService
   //Si yo aca agrego private servicioSupabase : SupabaseService la pagina no me carga mas 
   ) { }
 
   cerrarSesion(){
-    //  this.servicioSupabase.logout().then((response : any) => {
-    //   console.log(response);
-    //   this.toastr.success("Cerró Sesión con éxito");
-    // }).catch((error : any) => {
-    //   console.error(error);
-    //   this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
-    // });
+     this.servicioSupabase.logout().then((response : any) => {
+      console.log(response);
+      this.toastr.success("Cerró Sesión con éxito");
+    }).catch((error : any) => {
+      console.error(error);
+      this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
+    });
   }
 }
