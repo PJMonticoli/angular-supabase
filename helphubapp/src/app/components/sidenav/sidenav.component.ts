@@ -17,13 +17,15 @@ constructor(private toastr: ToastrService,private servicioSupabase : SupabaseSer
   //Si yo aca agrego private servicioSupabase : SupabaseService la pagina no me carga mas 
   ) { }
 
-  cerrarSesion(){
-     this.servicioSupabase.logout().then((response : any) => {
-      console.log(response);
-      this.toastr.success("Cerró Sesión con éxito");
-    }).catch((error : any) => {
-      console.error(error);
-      this.toastr.error("Ocurrió un error al intentar Cerrar Sesión");
-    });
+  cerrarSesion() {
+   this.servicioSupabase.logout().subscribe({
+    next : ()=>{
+      this.toastr.success('Cerro Sesión con éxito');
+    },
+    error : (err)=>{
+      console.log(err);
+      this.toastr.error('Error al intentar Cerrar Sesión');
+    }
+   }) 
   }
 }

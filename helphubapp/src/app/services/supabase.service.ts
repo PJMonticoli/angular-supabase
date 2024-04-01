@@ -31,6 +31,7 @@ export class SupabaseService {
   getVectorsByUserId(user_id: string): Observable<any> {
     const headers = {
       'apikey': environment.apiKey,
+      'Authorization': `Bearer ${this.getToken()}`
     };
     return this.http.get(`${environment.apiUrl}/rest/v1/vectors_table?user_id=eq.${user_id}`, { headers });
   }
@@ -73,8 +74,24 @@ export class SupabaseService {
     return this.http.post(`${environment.apiUrl}/auth/v1/signup`, body, { headers });
   }
 
-  logout(){
-    return this.s_client.auth.signOut();
+  logout(): Observable<any> {
+    const headers = new HttpHeaders({
+      'apikey': environment.apiKey,
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.getToken()}`
+    });
+
+    return this.http.post(`${environment.apiUrl}/auth/v1/logout`, null, { headers }).pipe(
+      tap(() => {
+        this.clearSession();
+      })
+    );
+  }
+
+  
+  private clearSession(): void {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_id');
   }
 
   insert(vectorData: any): Observable<any> {
@@ -107,9 +124,10 @@ getToken(): string | null {
 }
 
   
-  setUser(user_id: string) {
-    this.user_id = user_id;
-  }
+setUser(user_id: string): void {
+  this.user_id = user_id;
+  localStorage.setItem('user_id', user_id);
+}
   
   getUserId(): string | undefined {
     return this.user_id;
