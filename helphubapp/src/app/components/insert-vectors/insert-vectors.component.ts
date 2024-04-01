@@ -67,7 +67,7 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
   
       try {
         const user_id = this.supabaseService.getUserId();
-  
+        
         if (!user_id) {
           throw new Error('El usuario no está autenticado.');
         }
@@ -89,7 +89,7 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
             console.error(err);
           }
         });
-      } catch (error: any) { // Añadido el tipo de error
+      } catch (error: any) { 
         this.toastr.error(error.message);
       }
     }else{

@@ -50,10 +50,14 @@ export class SupabaseService {
     return this.http.post(`${environment.apiUrl}/auth/v1/token?grant_type=password`, body, { headers }).pipe(
       tap((response: any) => {
         this.setUser(response.user.id); 
-      })
-    );
+        this.setToken(response.access_token);
+      }
+    ));
   }
 
+  setToken(token: string): void {
+    localStorage.setItem('access_token', token);
+}
 
   signUp(email: string, password: string) {
     const headers = new HttpHeaders({
@@ -73,33 +77,21 @@ export class SupabaseService {
     return this.s_client.auth.signOut();
   }
 
-  // insert(vectorData: any): Observable<any> {
-  //   if (!this.user_id) {
-  //     throw new Error('El usuario no está autenticado.');
-  //   }
-
-  //   const headers = new HttpHeaders({
-  //     'apikey': this.apiKey,
-  //     'Content-Type': 'application/json'
-  //   });
-
-
-  //   const vectorDataWithUserId = {
-  //     ...vectorData,
-  //     user_id: this.user_id
-  //   };
-
-  //   return this.http.post(`${this.apiUrl}/rest/v1/vectors_table`, vectorDataWithUserId, { headers });
-  // }
   insert(vectorData: any): Observable<any> {
     const user_id = this.getUserId(); 
     if (!user_id) {
       throw new Error('El usuario no está autenticado.');
     }
 
+    const token = this.getToken(); 
+    if (!token) {
+      throw new Error('El token de acceso no está disponible.');
+    }
+
     const headers = new HttpHeaders({
       'apikey': environment.apiKey,
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}` 
     });
 
     const vectorDataWithUserId = {
@@ -108,7 +100,12 @@ export class SupabaseService {
     };
 
     return this.http.post(`${environment.apiUrl}/rest/v1/vectors_table`, vectorDataWithUserId, { headers });
-  }
+}
+
+getToken(): string | null {
+    return localStorage.getItem('access_token');
+}
+
   
   setUser(user_id: string) {
     this.user_id = user_id;

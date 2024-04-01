@@ -50,23 +50,6 @@ export class LoginComponent {
     this.fieldTextType = !this.fieldTextType;
   }
 
-  // iniciarSesion() {
-  //   if (this.formulario.valid) {
-  //     const email = this.formulario.value.email;
-  //     const password = this.formulario.value.password;
-
-  //     this.servicioSupabase.signIn(email, password).subscribe({
-  //       next: (response: any) => {
-  //         this.toastr.success("Inicio Sesión con éxito");
-  //         console.log(response.user);
-  //         this.router.navigate(['']);
-  //       },
-  //       error: (err) => {
-  //         this.toastr.error("Error al inicar sesión, revise y complete todos los campos!");
-  //         console.log(err);
-  //       }
-  //     });
-  //   }
   iniciarSesion() {
     if (this.formulario.valid) {
       const email = this.formulario.value.email;
@@ -77,6 +60,7 @@ export class LoginComponent {
           this.toastr.success("Inicio Sesión con éxito");
           this.servicioSupabase.setUser(response.user.id); 
           console.log(response.user.id);
+          console.log(response);
           this.router.navigate(['']);
         },
         error: (err) => {
