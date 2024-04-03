@@ -28,4 +28,9 @@ constructor(private toastr: ToastrService,private servicioSupabase : SupabaseSer
     }
    }) 
   }
+
+  // con el "!!" convierto el valor en boolean
+  estaAutenticado(): boolean {
+    return !!this.servicioSupabase.getUserId(); 
+  }
 }
