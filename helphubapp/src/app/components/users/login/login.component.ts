@@ -59,8 +59,6 @@ export class LoginComponent {
         next: (response: any) => {
           this.toastr.success("Inicio Sesión con éxito");
           this.servicioSupabase.setUser(response.user.id); 
-          console.log(response.user.id);
-          console.log(response);
           this.router.navigate(['']);
         },
         error: (err) => {
