@@ -39,15 +39,17 @@ export class UpdateVectorsComponent implements OnInit,OnDestroy {
   }
   
 
-  actualizarVector(vectorId: string) {
+  actualizarVector(vectorId: number) {
     const pregunta = this.formulario.value.pregunta;
     const respuesta = this.formulario.value.respuesta;
     const estado = this.formulario.value.estado;
     const vectorData = {
       pregunta: pregunta,
       respuesta: respuesta,
-      estado: estado
+      estado: estado,
+      user_id: this.servicioSupabase.getUserId() 
     };
+  
     this.servicioSupabase.modificar(vectorId, vectorData)
       .subscribe({
         next: (response: any) => {
@@ -60,6 +62,7 @@ export class UpdateVectorsComponent implements OnInit,OnDestroy {
         }
       });
   }
+  
   
   
   

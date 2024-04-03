@@ -134,7 +134,7 @@ setUser(user_id: string): void {
   }
 
 
-  modificar(vectorId: string, vectorDataUpdated: any): Observable<any> {
+  modificar(vectorId: number, vectorDataUpdated: any): Observable<any> {
     const user_id = this.getUserId(); 
     if (!user_id) {
       throw new Error('El usuario no está autenticado.');
@@ -156,6 +156,8 @@ setUser(user_id: string): void {
   
     return this.http.put(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, vectorDataWithUserId, { headers });
   }
+  
+  
   deleteVector(vectorId: any): Observable<any> {
     const user_id = this.getUserId();
     if (!user_id) {
