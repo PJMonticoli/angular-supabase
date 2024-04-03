@@ -134,27 +134,45 @@ setUser(user_id: string): void {
   }
 
 
-  // modificar(vectorId: string, vectorDataUpdated: any): Observable<any> {
-  //   const user_id = this.getUserId(); 
-  //   if (!user_id) {
-  //     throw new Error('El usuario no está autenticado.');
-  //   }
-  //   const token = this.getToken(); 
-  //   if (!token) {
-  //     throw new Error('El token de acceso no está disponible.');
-  //   }
-  //   const headers = new HttpHeaders({
-  //     'apikey': environment.apiKey,
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${token}` 
-  //   });
+  modificar(vectorId: string, vectorDataUpdated: any): Observable<any> {
+    const user_id = this.getUserId(); 
+    if (!user_id) {
+      throw new Error('El usuario no está autenticado.');
+    }
+    const token = this.getToken(); 
+    if (!token) {
+      throw new Error('El token de acceso no está disponible.');
+    }
+    const headers = new HttpHeaders({
+      'apikey': environment.apiKey,
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}` 
+    });
   
-  //   const vectorDataWithUserId = {
-  //     ...vectorDataUpdated,
-  //     user_id: user_id
-  //   };
+    const vectorDataWithUserId = {
+      ...vectorDataUpdated,
+      user_id: user_id
+    };
   
-  //   return this.http.put(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, vectorDataWithUserId, { headers });
-  // }
-  
+    return this.http.put(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, vectorDataWithUserId, { headers });
+  }
+  deleteVector(vectorId: any): Observable<any> {
+    const user_id = this.getUserId();
+    if (!user_id) {
+      throw new Error('El usuario no está autenticado.');
+    }
+
+    const token = this.getToken();
+    if (!token) {
+      throw new Error('El token de acceso no está disponible.');
+    }
+
+    const headers = new HttpHeaders({
+      'apikey': environment.apiKey,
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.delete(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, { headers });
+  }
 }

@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { SupabaseService } from '../../services/supabase.service';
+
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { SupabaseService } from '../../../services/supabase.service';
 
 @Component({
   selector: 'app-insert-vectors',

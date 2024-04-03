@@ -40,6 +40,7 @@
                 </td>
                 <td>
                   <app-update-vectors [vector]="fila" (onUpdate)="fetchVectorsForCurrentUser()"></app-update-vectors>
+                  <app-delete-vectors class="ms-2" [vector]="fila" (onEliminado)="fetchVectorsForCurrentUser()"></app-delete-vectors>
                 </td>
               </tr>
               }

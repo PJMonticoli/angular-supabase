@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SupabaseService } from '../../services/supabase.service';
+
 import { RouterLink } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
+
+import { SupabaseService } from '../../../services/supabase.service';
+import { DeleteVectorsComponent } from '../delete-vectors/delete-vectors.component';
 import { UpdateVectorsComponent } from '../update-vectors/update-vectors.component';
 import { InsertVectorsComponent } from '../insert-vectors/insert-vectors.component';
 
@@ -11,7 +14,7 @@ import { InsertVectorsComponent } from '../insert-vectors/insert-vectors.compone
 @Component({
   selector: 'app-vectors-table',
   standalone: true,
-  imports: [RouterLink,MatPaginatorModule,InsertVectorsComponent,UpdateVectorsComponent],
+  imports: [RouterLink,MatPaginatorModule,InsertVectorsComponent,UpdateVectorsComponent,DeleteVectorsComponent],
   templateUrl: './vectors-table.component.html',
   styleUrl: './vectors-table.component.css'
 })

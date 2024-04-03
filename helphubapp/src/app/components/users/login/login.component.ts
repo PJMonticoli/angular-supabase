@@ -59,7 +59,7 @@ export class LoginComponent {
         next: (response: any) => {
           this.toastr.success("Inicio Sesión con éxito");
           this.servicioSupabase.setUser(response.user.id); 
-          this.router.navigate(['']);
+          this.router.navigate(['/vectors_table']);
         },
         error: (err) => {
           this.toastr.error("Error al inicar sesión, revise y complete todos los campos!");

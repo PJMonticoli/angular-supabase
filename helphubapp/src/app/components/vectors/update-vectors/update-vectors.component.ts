@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { SupabaseService } from '../../services/supabase.service';
+
 import { ToastrService } from 'ngx-toastr';
+import { SupabaseService } from '../../../services/supabase.service';
 
 @Component({
   selector: 'app-update-vectors',
@@ -39,25 +40,25 @@ export class UpdateVectorsComponent implements OnInit,OnDestroy {
   
 
   actualizarVector(vectorId: string) {
-    // const pregunta = this.formulario.value.pregunta;
-    // const respuesta = this.formulario.value.respuesta;
-    // const estado = this.formulario.value.estado;
-    // const vectorData = {
-    //   pregunta: pregunta,
-    //   respuesta: respuesta,
-    //   estado: estado
-    // };
-    // this.servicioSupabase.modificar(vectorId, vectorData)
-    //   .subscribe({
-    //     next: (response: any) => {
-    //       this.toastr.success('Actualizo el registro con éxito');
-    //       console.log(response);
-    //     },
-    //     error: (err: any) => {
-    //       this.toastr.error('Error al actualizar registro');
-    //       console.error(err);
-    //     }
-    //   });
+    const pregunta = this.formulario.value.pregunta;
+    const respuesta = this.formulario.value.respuesta;
+    const estado = this.formulario.value.estado;
+    const vectorData = {
+      pregunta: pregunta,
+      respuesta: respuesta,
+      estado: estado
+    };
+    this.servicioSupabase.modificar(vectorId, vectorData)
+      .subscribe({
+        next: (response: any) => {
+          this.toastr.success('Actualizo el registro con éxito');
+          console.log(response);
+        },
+        error: (err: any) => {
+          this.toastr.error('Error al actualizar registro');
+          console.error(err);
+        }
+      });
   }
   
   
