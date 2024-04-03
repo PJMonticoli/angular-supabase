@@ -56,9 +56,7 @@ export class SupabaseService {
     ));
   }
 
-  setToken(token: string): void {
-    localStorage.setItem('access_token', token);
-}
+
 
   signUp(email: string, password: string) {
     const headers = new HttpHeaders({
@@ -119,8 +117,17 @@ export class SupabaseService {
     return this.http.post(`${environment.apiUrl}/rest/v1/vectors_table`, vectorDataWithUserId, { headers });
 }
 
+setToken(token: string): void {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('access_token', token);
+  }
+}
+
 getToken(): string | null {
+  if (typeof window !== 'undefined') {
     return localStorage.getItem('access_token');
+  }
+  return null;
 }
 
   
@@ -176,5 +183,9 @@ setUser(user_id: string): void {
     });
 
     return this.http.delete(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, { headers });
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
   }
 }
