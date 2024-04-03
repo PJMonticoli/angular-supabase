@@ -27,9 +27,11 @@
             <i class="bi bi-house"></i> Inicio
         </button>
         <br>
-        <button class="btn btn-outline-light btn-block btn-large text-uppercase fw-semibold" routerLink="/vectors_table" data-bs-dismiss="offcanvas">
-            <i class="bi bi-list-ul"></i> Gestionar Listado
-        </button>
+        @if(isLoggedIn()){
+            <button class="btn btn-outline-light btn-block btn-large text-uppercase fw-semibold" routerLink="/vectors_table" data-bs-dismiss="offcanvas">
+                <i class="bi bi-list-ul"></i> Gestionar Listado
+            </button>
+        }
     </div>
 </div>
 
