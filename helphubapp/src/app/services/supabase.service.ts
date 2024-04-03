@@ -139,10 +139,14 @@ setUser(user_id: string): void {
   //   if (!user_id) {
   //     throw new Error('El usuario no está autenticado.');
   //   }
-  
+  //   const token = this.getToken(); 
+  //   if (!token) {
+  //     throw new Error('El token de acceso no está disponible.');
+  //   }
   //   const headers = new HttpHeaders({
   //     'apikey': environment.apiKey,
-  //     'Content-Type': 'application/json'
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${token}` 
   //   });
   
   //   const vectorDataWithUserId = {

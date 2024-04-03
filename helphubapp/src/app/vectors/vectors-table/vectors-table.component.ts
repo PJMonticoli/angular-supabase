@@ -3,8 +3,9 @@ import { SupabaseService } from '../../services/supabase.service';
 import { RouterLink } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
-import { InsertVectorsComponent } from '../insert-vectors/insert-vectors.component';
 import { UpdateVectorsComponent } from '../update-vectors/update-vectors.component';
+import { InsertVectorsComponent } from '../insert-vectors/insert-vectors.component';
+
 
 
 @Component({
