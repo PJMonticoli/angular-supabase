@@ -34,8 +34,6 @@ export class VectorsTableComponent implements OnInit {
       this.supabaseService.getVectorsByUserId(user_id).subscribe((data: any) => {
         this.vectors = data;
       });
-    } else {
-      console.error('User ID not available');
     }
   }
 
