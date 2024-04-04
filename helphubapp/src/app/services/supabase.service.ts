@@ -92,6 +92,26 @@ export class SupabaseService {
     return this.http.post(`${environment.apiUrl}/auth/v1/recover`, body, { headers });
   }
 
+  // Actualizar usuario
+
+updateUser(email: string, password: string, userData: any, token: string): Observable<any> {
+  const headers = new HttpHeaders({
+    'apikey': environment.apiKey,
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  });
+
+  const body = {
+    email: email,
+    password: password,
+    data: userData
+  };
+
+  return this.http.put(`${environment.apiUrl}/auth/v1/user`, body, { headers });
+}
+
+
+
   // Limpiar Sesión 
   private clearSession(): void {
     localStorage.removeItem('access_token');

@@ -83,13 +83,19 @@ export class LoginComponent {
       this.servicioSupabase.recoverPassword(email).subscribe({
         next : ()=>{
           this.toastr.success("Se ha enviado un enlace de recuperación de contraseña al correo electrónico proporcionado.");
+          this.router.navigate(['/']);
         },
-        error : ()=>{
-          this.toastr.success("Se ha enviado un enlace de recuperación de contraseña al correo electrónico proporcionado.");
+        error : (err : any)=>{
+          this.toastr.success("Error al intentar enviar correo de recuperación de contraseña.");
+          console.log(err);
         }
       });
 
     }
+  }
+
+  limpiarFormulario() {
+    this.formRecovery.reset(); 
   }
 }
 
