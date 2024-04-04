@@ -68,3 +68,11 @@ h1 {
   width: 100%;
   padding: 20px;
 }
+.icon-link {
+  color: white; 
+  text-decoration: none; 
+}
+
+.icon-link:hover {
+  color: rgb(25, 135, 84); 
+}
