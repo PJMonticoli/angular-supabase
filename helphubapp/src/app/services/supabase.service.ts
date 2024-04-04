@@ -78,6 +78,20 @@ export class SupabaseService {
     );
   }
 
+  // Recuperar Contraseña
+  recoverPassword(email: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'apikey': environment.apiKey,
+      'Content-Type': 'application/json'
+    });
+
+    const body = {
+      email: email
+    };
+
+    return this.http.post(`${environment.apiUrl}/auth/v1/recover`, body, { headers });
+  }
+
   // Limpiar Sesión 
   private clearSession(): void {
     localStorage.removeItem('access_token');
