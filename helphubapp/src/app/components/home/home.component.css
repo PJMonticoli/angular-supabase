@@ -1,66 +1,83 @@
-
-.showcase {
-  position: relative;
-  height: 100vh;
-  background-image: url('../../../assets/img/home.jpg');
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.content {
-  text-align: center;
+.hero {
+  height: 100vh; 
+  background-image: url("../../../assets/img/logo5.jpg");
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero h1 {
+  font-size: 36px; 
+}
+
+.hero p {
+  font-size: 24px; 
+}
+
+
+.features {
+  background-image: url("../../../assets/img/logo6.jpg");
+  color: #fff; 
+  padding: 80px 0;
+  text-align: center;
+}
+
+.features .section-title {
+  margin-bottom: 50px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.feature .icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 
 
-#about {
-  background: #000;
+.cta {
+  background-color: #222; 
   padding: 50px 0;
   text-align: center;
 }
 
-.container {
-  width: 80%;
-  margin: auto;
-}
 
-.social {
-  margin-top: 20px;
+.hero h1,
+.hero p,
+.features h2,
+.feature h3,
+.feature p,
+.cta h2,
+.cta button {
+  color: #fff;
 }
 
 .social a {
-  color: #333;
+  color: #fff;
   margin: 0 10px;
   transition: color 0.3s ease;
 }
 
 .social a:hover {
-  color: #000;
-}
-.carousel-item img {
-  width: 100%;
-  height: 300px; /* Ajusta el valor de altura según tus necesidades */
-  object-fit: cover; /* Ajusta el comportamiento de la imagen */
-}
-
-/* Ajustar el contenedor del carrusel para ocupar todo el ancho de la pantalla */
-.carousel {
-  width: 100%;
+  color: #aaa;
 }

@@ -12,7 +12,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class HomeComponent {
   scrollToAbout(): void {
     // Obtenemos la posición de la sección "about"
-    const aboutSection = document.getElementById("about");
+    const aboutSection = document.getElementById("features");
     if (aboutSection) {
       const aboutSectionPosition = aboutSection.offsetTop;
       
