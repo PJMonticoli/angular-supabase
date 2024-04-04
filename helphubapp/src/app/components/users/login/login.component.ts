@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent {
   private subscription = new Subscription();
   formulario: FormGroup;
+  formRecovery: FormGroup;
   fieldTextType: boolean = false;
   @Input() modalId: number = 1;
   mostrarCheckboxTerminos: boolean = false;
@@ -29,6 +30,10 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+
+    this.formRecovery = this.formBuilder.group({
+      recuperarEmail: ['', [Validators.required, Validators.email]],
+    });
   }
 
   ngOnDestroy(): void {
@@ -39,6 +44,9 @@ export class LoginComponent {
 
   get controlEmail(): FormControl {
     return this.formulario.controls['email'] as FormControl;
+  }
+  get recuperarEmail(): FormControl {
+    return this.formulario.controls['recuperarEmail'] as FormControl;
   }
 
   get controlPassword() : FormControl{
@@ -68,6 +76,20 @@ export class LoginComponent {
       });
     }
   }
-  
+
+  recuperarPassword(): void {
+    const email = this.formRecovery.get('recuperarEmail')?.value;
+    if (this.formRecovery.valid) {
+      this.servicioSupabase.recoverPassword(email).subscribe({
+        next : ()=>{
+          this.toastr.success("Se ha enviado un enlace de recuperación de contraseña al correo electrónico proporcionado.");
+        },
+        error : ()=>{
+          this.toastr.success("Se ha enviado un enlace de recuperación de contraseña al correo electrónico proporcionado.");
+        }
+      });
+
+    }
   }
+}
 

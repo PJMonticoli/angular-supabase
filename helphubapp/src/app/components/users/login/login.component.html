@@ -62,10 +62,47 @@
                         <p class="invalid-feedback">Contraseña es requerida, complete el campo</p>
                       }
                     </div>
-                    <a class="icon-link icon-link-hover mt-2" routerLink="/user-register">
-                      ¿Nuevo en HelpHub? Regístrate
-                      <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
-                  </a>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a class="icon-link icon-link-hover mt-2" routerLink="/user-register">
+                          ¿Nuevo en HelpHub? Regístrate
+                          <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+                        </a>
+                      </div>
+                      <div class="col-md-6">
+                      <button type="button" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        ¿Olvidaste tu contraseña?
+                      </button>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Recuperar Contraseña</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form [formGroup]="formRecovery"> 
+                                <div class="mb-3">
+                                  <label for="recuperarEmail" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="recuperarEmail" formControlName="recuperarEmail" placeholder="Ingrese su email">
+                                </div>
+                              
+                              </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" (click)="recuperarPassword()">Enviar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      </div>
+                    </div>
+
+
                   
                   
                   <br>
