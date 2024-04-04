@@ -18,16 +18,21 @@ export class DeleteVectorsComponent{
   constructor(private servicioSupabase : SupabaseService,private toastr : ToastrService){}
 
   eliminar(vector_id : any){
-    this.servicioSupabase.deleteVector(vector_id).subscribe({
-      next: (response: any) => {
-        this.toastr.success('Registro eliminado con éxito');
-        this.onEliminado.emit();
-      },
-      error: (err: any) => {
-        this.toastr.error('Error al intentar eliminar registro');
-        console.error(err);
-      }
-    });
+    try{
+      this.servicioSupabase.deleteVector(vector_id).subscribe({
+        next: (response: any) => {
+          this.toastr.success('Registro eliminado con éxito');
+          this.onEliminado.emit();
+        },
+        error: (err: any) => {
+          this.toastr.error('Error al intentar eliminar registro');
+          console.error(err);
+        }
+      });
+    }catch (error : any){
+      console.error(error);
+    }
+    
 }
 
 }

@@ -161,7 +161,7 @@ setUser(user_id: string): void {
       user_id: user_id
     };
   
-    return this.http.put(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, vectorDataWithUserId, { headers });
+    return this.http.patch(`${environment.apiUrl}/rest/v1/vectors_table?id=eq.${vectorId}`, vectorDataWithUserId, { headers });
   }
   
   
@@ -178,11 +178,10 @@ setUser(user_id: string): void {
 
     const headers = new HttpHeaders({
       'apikey': environment.apiKey,
-      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
 
-    return this.http.delete(`${environment.apiUrl}/rest/v1/vectors_table/${vectorId}`, { headers });
+    return this.http.delete(`${environment.apiUrl}/rest/v1/vectors_table?id=eq.${vectorId}`, { headers });
   }
 
   isLoggedIn(): boolean {

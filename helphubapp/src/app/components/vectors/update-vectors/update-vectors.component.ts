@@ -40,27 +40,41 @@ export class UpdateVectorsComponent implements OnInit,OnDestroy {
   
 
   actualizarVector(vectorId: number) {
-    const pregunta = this.formulario.value.pregunta;
-    const respuesta = this.formulario.value.respuesta;
-    const estado = this.formulario.value.estado;
-    const vectorData = {
-      pregunta: pregunta,
-      respuesta: respuesta,
-      estado: estado,
-      user_id: this.servicioSupabase.getUserId() 
-    };
+    if (this.formulario.valid) {
+      const pregunta = this.formulario.value.pregunta;
+      const respuesta = this.formulario.value.respuesta;
+      const estado = this.formulario.value.estado;
   
-    this.servicioSupabase.modificar(vectorId, vectorData)
-      .subscribe({
-        next: (response: any) => {
-          this.toastr.success('Actualizo el registro con éxito');
-          console.log(response);
-        },
-        error: (err: any) => {
-          this.toastr.error('Error al actualizar registro');
-          console.error(err);
+      try {
+        const user_id = this.servicioSupabase.getUserId();
+        
+        if (!user_id) {
+          throw new Error('El usuario no está autenticado.');
         }
-      });
+  
+        const vectorData = {
+          pregunta: pregunta,
+          respuesta: respuesta,
+          estado: estado,
+          user_id: user_id 
+        };
+  
+        this.servicioSupabase.modificar(vectorId, vectorData).subscribe({
+          next: (response: any) => {
+            this.toastr.success('Actualizo el registro con éxito');
+            this.onUpdate.emit();
+          },
+          error: (err: any) => {
+            this.toastr.error('Error al actualizar registro');
+            console.error(err);
+          }
+        });
+      } catch (error: any) { 
+        this.toastr.error(error.message);
+      }
+    }else{
+      this.toastr.error('Revise y complete todos los campos!');
+    }
   }
   
   
