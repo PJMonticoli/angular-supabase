@@ -16,27 +16,14 @@ export class AutenticadoGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.servicioSupabase.isLoggedIn()) {
-      // User is logged in
-      const token = this.servicioSupabase.getToken();
-      if (token) {
-        const body = token.split('.')[1]; 
-        const buff = JSON.parse(atob(body));
-        if (buff != '') {
-          return true;
-        } else {
-          this.toastr.error("No posee permisos para acceder a este recurso");
-          this.router.navigate(['/']);
-          return false;
-        }
-      } else {
-        this.toastr.error("Es necesario iniciar sesión para acceder a este recurso");
-        this.router.navigate(['/user-login']);
-        return false;
-      }
+      return true; 
     } else {
-      this.toastr.error("Es necesario iniciar sesión para acceder a este recurso");
-      this.router.navigate(['/user-login']);
-      return false;
+      this.toastr.error("Es necesario iniciar sesión para acceder a este recurso", undefined, {
+        timeOut: 3000 // Duración en milisegundos (en este caso, 3 segundos)
+      });
+      
+      this.router.navigate(['/']);
+      return false; 
     }
   }
 }
