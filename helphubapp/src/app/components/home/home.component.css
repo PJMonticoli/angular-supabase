@@ -82,3 +82,13 @@
 .social a:hover {
   color: #aaa;
 }
+
+.letra:hover{
+  background-color: rgb(120, 207, 236);
+}
+
+.titulo{
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: xx-large;
+}
