@@ -22,3 +22,12 @@
     text-align: left; 
 } 
 
+.color:hover {
+    background-color: green; 
+    color: white;
+}
+
+.cerrar:hover{
+    background-color: red;
+    color: white;
+}
