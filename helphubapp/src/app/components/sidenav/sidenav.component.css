@@ -31,3 +31,7 @@
     background-color: red;
     color: white;
 }
+
+.registrar:hover{
+    background-color: rgb(120, 207, 236);
+}

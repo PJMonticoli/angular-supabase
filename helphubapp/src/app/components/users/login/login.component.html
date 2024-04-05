@@ -65,14 +65,14 @@
 
                     <div class="row">
                       <div class="col-md-6">
-                        <a class="icon-link icon-link-hover mt-2" routerLink="/user-register">
+                        <a class="icon-link icon-link-hover mt-2 fw-semibold" routerLink="/user-register">
                           ¿Nuevo en HelpHub? Regístrate
                           <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
                         </a>
                       </div>
                       <div class="col-md-6">
                       <button type="button" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        ¿Olvidaste tu contraseña?
+                        ¿Olvidaste la contraseña?
                       </button>
 
                       <!-- Modal -->
@@ -108,7 +108,7 @@
                   <br>
                   <button
                     type="submit"
-                    class="btn btn-primary btn-block btn-large  fw-semibold mt-2"
+                    class="btn btn-primary btn-block btn-large  fw-semibold mt-2 bi bi-box-arrow-in-left"
                     [disabled]="!formulario.valid" (click)="iniciarSesion()"
                   >
                     Inicar Sesión

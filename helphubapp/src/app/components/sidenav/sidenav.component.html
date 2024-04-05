@@ -2,10 +2,10 @@
     <button class="btn btn-outline-light bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></button>
     <div class="d-flex">
         @if(!isLoggedIn()){
-            <button  type="button" class="bi bi-person-fill-add btn btn-outline-secondary ms-3" routerLink="/user-register"> Registrarme</button>
-            <button  type="button" class="bi bi-box-arrow-in-right btn btn-outline-light ms-3 mx-2 color" routerLink="/user-login"> Iniciar Sesión</button>
+            <button  type="button" class="bi bi-person-fill-add btn btn-outline-secondary ms-3 registrar" routerLink="/user-register"> Registrarme</button>
+            <button  type="button" class="bi bi-box-arrow-in-left btn btn-outline-light ms-3 mx-2 color" routerLink="/user-login"> Iniciar Sesión</button>
         }@else if (isLoggedIn()){
-            <button  (click)="cerrarSesion()" type="button" class="bi bi-box-arrow-left btn btn-outline-light ms-3 mx-2 cerrar" routerLink="/"> Cerrar Sesión</button>
+            <button  (click)="cerrarSesion()" type="button" class="bi bi-box-arrow-right btn btn-outline-light ms-3 mx-2 cerrar" routerLink="/"> Cerrar Sesión</button>
         }
         <!-- <div class="dropdown">
             <button class="btn btn-outline-light dropdown-toggle bi bi-person-circle mx-2" type="button" data-bs-toggle="dropdown" aria-controls="offcanvasScrolling"> Usuario</button>
@@ -35,7 +35,7 @@
         <br>
         @if(isLoggedIn()){
             <button class="btn btn-outline-light btn-block btn-large text-uppercase fw-semibold" routerLink="/vectors_table" data-bs-dismiss="offcanvas">
-                <i class="bi bi-list-ul"></i> Gestionar Listado
+                <i class="bi bi-table"></i> Tabla
             </button>
         }
     </div>

@@ -1,7 +1,7 @@
 
 <div class="fondo">
     <div class="container-fluid">
-        <h1 class="titulo text-center text-uppercase py-5">Registrar Usuario</h1>
+        <h1 class="titulo text-center text-uppercase py-5">Registro de Usuario</h1>
         <form [formGroup]="formulario" class="container align-center">
           <div class="form-group">
             <div class="row">
@@ -69,7 +69,7 @@
                   <br>
                   <button
                     type="submit"
-                    class="btn btn-primary btn-block btn-large mt-2 fw-semibold"
+                    class="btn btn-primary btn-block btn-large mt-2 fw-semibold bi bi-person-fill-add"
                     [disabled]="!formulario.valid" (click)="register()"
                   >
                     Crear cuenta
