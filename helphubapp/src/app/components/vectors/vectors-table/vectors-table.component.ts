@@ -23,7 +23,7 @@ export class VectorsTableComponent implements OnInit {
   vectors: any[] = [];
   filtroTexto: string = '';
   page: number = 0; 
-  pageSize: number = 7; 
+  pageSize: number = 6; 
   constructor(private supabaseService : SupabaseService,private toastr : ToastrService){}
 
   ngOnInit(): void {
