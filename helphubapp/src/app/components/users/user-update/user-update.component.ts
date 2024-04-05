@@ -23,7 +23,6 @@ export class UserUpdateComponent {
   constructor(
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,
-    private router : Router,
     private toastr : ToastrService
   ) {
     this.formulario = this.formBuilder.group({
@@ -72,7 +71,6 @@ export class UserUpdateComponent {
           next: (response: any) => {
             this.toastr.success('Contraseña cambiada con éxito!');
             this.servicioSupabase.setUser(response.user.id);
-            this.router.navigate(['/user-login']);
           },
           error: (err) => {
             this.toastr.error('Error al cambiar la contraseña. Ingrese una contraseña valida y diferente a la anterior.');
