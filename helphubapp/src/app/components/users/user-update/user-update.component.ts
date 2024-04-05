@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { SupabaseService } from '../../../services/supabase.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { UpdateService } from '../../../services/update.service';
+
 
 @Component({
   selector: 'app-user-update',
@@ -24,8 +24,7 @@ export class UserUpdateComponent {
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,
     private router : Router,
-    private toastr : ToastrService,
-    private updateService : UpdateService
+    private toastr : ToastrService
   ) {
     this.formulario = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -52,29 +51,54 @@ export class UserUpdateComponent {
     this.fieldTextType = !this.fieldTextType;
   }
 
-  async cambiarPassword() {
+
+  cambiarPassword(): void {
     const email = this.formulario.get('email')?.value;
     const password = this.formulario.get('password')?.value;
-  
+
     if (this.formulario.valid) {
-      try {
+      // Obtén el token de la URL
+      const tokenFromURL = this.getTokenFromURL();
+      console.log(tokenFromURL);
+      // Verifica si se obtuvo el token de la URL correctamente
+      if (tokenFromURL) {
         const userData = {
           email: email,
           password: password
         };
-  
-        const updateUserResponse = await this.updateService.updateUser(email, password, userData);
-        this.toastr.success('¡Contraseña cambiada con éxito!');
-        this.servicioSupabase.setUser(updateUserResponse.user.id);
-        this.router.navigate(['/user-login']);
-      } catch (error) {
-        this.toastr.error('Error al cambiar la contraseña. Por favor, intenta nuevamente.');
-        console.error(error);
+
+        // Llama a updateUser utilizando el token de la URL
+        this.servicioSupabase.updateUser(email, password, userData, tokenFromURL).subscribe({
+          next: (response: any) => {
+            this.toastr.success('Contraseña cambiada con éxito!');
+            this.servicioSupabase.setUser(response.user.id);
+            this.router.navigate(['/user-login']);
+          },
+          error: (err) => {
+            this.toastr.error('Error al cambiar la contraseña. Ingrese una contraseña valida y diferente a la anterior.');
+            console.error(err);
+          }
+        });
+      } else {
+        this.toastr.error('No se pudo obtener el token de la URL. Ingrese una contraseña valida y diferente a la anterior.');
       }
     } else {
       this.toastr.error('Por favor, completa todos los campos correctamente.');
     }
   }
+
+  getTokenFromURL(): string | null {
+    const currentUrl = window.location.href;
+    const tokenRegex = /access_token=([^&]+)/;
+    const match = tokenRegex.exec(currentUrl);
+    
+    if (match) {
+      return match[1]; 
+    }
+  
+    return null;
+  }
+  
   }
 
   
