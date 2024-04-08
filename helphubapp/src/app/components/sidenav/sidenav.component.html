@@ -1,4 +1,4 @@
-<div class="bg-dark position-relative d-flex justify-content-between align-items-center">
+<!-- <div class="bg-dark position-relative d-flex justify-content-between align-items-center">
     <button class="btn btn-outline-light bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></button>
     <div class="d-flex">
         @if(!isLoggedIn()){
@@ -7,7 +7,7 @@
         }@else if (isLoggedIn()){
             <button  (click)="cerrarSesion()" type="button" class="bi bi-box-arrow-right btn btn-outline-light ms-3 mx-2 cerrar" routerLink="/"> Cerrar Sesión</button>
         }
-        <!-- <div class="dropdown">
+        <div class="dropdown">
             <button class="btn btn-outline-light dropdown-toggle bi bi-person-circle mx-2" type="button" data-bs-toggle="dropdown" aria-controls="offcanvasScrolling"> Usuario</button>
             <ul class="dropdown-menu">
                 @if(!isLoggedIn()){
@@ -18,7 +18,7 @@
 
                 }
             </ul>
-          </div>      -->
+          </div>     
     </div>
 </div>
 
@@ -40,4 +40,33 @@
         }
     </div>
 </div>
+ -->
+ <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <button class="button" data-text="Awesome" routerLink="">
+            <span class="actual-text">&nbsp;HelpHub&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;HelpHub&nbsp;</span>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button class="button mx-auto" data-text="Awesome" routerLink="vectors_table">
+                    <span class="actual-text">&nbsp;Tabla&nbsp;</span>
+                    <span aria-hidden="true" class="hover-text">&nbsp;Tabla&nbsp;</span>
+                </button>
+
+            <div class="d-flex justify-content-end">
+                @if(!isLoggedIn()) {
+                <button type="button" class="bi bi-person-fill-add btn btn-outline-secondary ms-3 registrar" routerLink="/user-register">Registrarme</button>
+                <button type="button" class="bi bi-box-arrow-in-right btn btn-outline-light ms-3 mx-2 color" routerLink="/user-login">Iniciar Sesión</button>
+
+                }
+                @else if (isLoggedIn()){
+                <button (click)="cerrarSesion()" type="button" class="bi bi-box-arrow-left btn btn-outline-light ms-3 mx-2 cerrar" routerLink="">Cerrar Sesión</button>
+                }
+            </div>
+        </div>
+    </div>
+</nav>
 

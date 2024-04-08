@@ -25,7 +25,7 @@ export class AutenticadoGuard implements CanActivate {
         icon: 'info'
       });
       
-      this.router.navigate(['/']);
+      this.router.navigate(['/user-login']);
       return false; 
     }
   }
