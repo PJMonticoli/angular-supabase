@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { ToastrService } from 'ngx-toastr';
 import { SupabaseService } from '../../../services/supabase.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-delete-vectors',
   standalone: true,
@@ -18,31 +18,35 @@ export class DeleteVectorsComponent{
   constructor(private servicioSupabase : SupabaseService,private toastr : ToastrService){}
 
   eliminar(vector_id: any) {
-    try {
-      this.toastr.info('¿Estás seguro de que deseas eliminar este registro?', 'Confirmar eliminación', {
-        closeButton: true,
-        timeOut: 0,
-        extendedTimeOut: 0,
-        tapToDismiss: false,
-        progressBar: true,
-        enableHtml: true,
-        positionClass: 'toast-top-right'
-      }).onTap.subscribe(() => {
-        this.servicioSupabase.deleteVector(vector_id).subscribe({
-          next: (response: any) => {
-            this.toastr.success('Registro eliminado con éxito');
-            this.onEliminado.emit();
-          },
-          error: (err: any) => {
-            this.toastr.error('Error al intentar eliminar registro');
-            console.error(err);
-          }
-        });
-      });
-    } catch (error: any) {
-      console.error(error);
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: "No vas a poder revertir la acción!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#39AF09',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar'
+    }).then((result : any) => {
+      if (result.isConfirmed) {
+        this.subscription.add(
+          this.servicioSupabase.deleteVector(vector_id).subscribe({
+            next : ()=>{
+              Swal.fire({title: 'Listo', text : 'Eliminaste el registro con éxito', icon: 'success'});
+              this.onEliminado.emit();
+            },
+            error : (err : any)=>{
+              Swal.fire({title:'Error', text:`Error al intentar eliminar registro: ${err}`, icon: 'error'});
+            }
+          })
+        )
+        Swal.fire(
+          'Eliminado!',
+          'El registro ha sido eliminado.',
+          'success'
+        )
+      }
+    })
     }
   }
-  
+ 
 
-}

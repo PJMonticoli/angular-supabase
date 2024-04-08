@@ -3,6 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr'; 
 import { SupabaseService } from '../services/supabase.service';
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,10 @@ export class AutenticadoGuard implements CanActivate {
     if (this.servicioSupabase.isLoggedIn()) {
       return true; 
     } else {
-      this.toastr.error("Es necesario iniciar sesión para acceder a este recurso", undefined, {
-        timeOut: 3000 // Duración en milisegundos (en este caso, 3 segundos)
+      Swal.fire({
+        title: 'Atención!',
+        text: 'Necesitas iniciar sesión para acceder a este recurso',
+        icon: 'info'
       });
       
       this.router.navigate(['/']);
