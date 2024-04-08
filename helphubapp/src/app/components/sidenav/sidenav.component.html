@@ -59,7 +59,7 @@
             <div class="d-flex justify-content-end">
                 @if(!isLoggedIn()) {
                     <button class="btn bi bi-person-fill-add" routerLink="/user-register"> Sign-Up </button>
-                    <button class="btn bi bi-box-arrow-in-right ms-2" routerLink="/user-login"> Sing-In</button>
+                    <button class="btn bi bi-box-arrow-in-right ms-2" routerLink="/user-login"> Sign-In</button>
                 }
                 @else if (isLoggedIn()){
                     <button class="Btn" (click)="cerrarSesion()">
