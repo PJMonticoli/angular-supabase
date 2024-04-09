@@ -31,19 +31,13 @@ export class DeleteVectorsComponent{
         this.subscription.add(
           this.servicioSupabase.deleteVector(vector_id).subscribe({
             next : ()=>{
-              Swal.fire({title: 'Listo', text : 'Eliminaste el registro con éxito', icon: 'success'});
+              this.toastr.success('Eliminaste el registro con éxito');
               this.onEliminado.emit();
             },
             error : (err : any)=>{
-              Swal.fire({title:'Error', text:`Error al intentar eliminar registro: ${err}`, icon: 'error'});
+              this.toastr.success('Error al intentar eliminar registro');
             }
-          })
-        )
-        Swal.fire(
-          'Eliminado!',
-          'El registro ha sido eliminado.',
-          'success'
-        )
+          }))
       }
     })
     }
