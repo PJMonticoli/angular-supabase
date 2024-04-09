@@ -24,7 +24,7 @@
 .features {
   background-image: url("../../../assets/img/logo6.jpg");
   color: #fff; 
-  padding: 80px 0;
+  padding: 60px 0;
   text-align: center;
 }
 
@@ -88,7 +88,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #222; 
+  /* background-color: #222;  */
   box-shadow: 0px 0px 15px #00000027;
   padding: 15px 10px;
   border-radius: 5em;
@@ -167,4 +167,12 @@
   fill: #c13584;
 }
 
+
+/* .container-footer {
+  background-image: url("../../../assets/img/footer.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+} */
 
