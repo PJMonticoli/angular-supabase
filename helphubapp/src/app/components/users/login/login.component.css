@@ -57,7 +57,7 @@ h1 {
 }
 
 .fondo {
-  background-image: url("../../../../assets/img/logo6.jpg");
+  background-image: url("../../../../assets/img/logintemplate.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -175,3 +175,4 @@ h1 {
   scale: 0.95;
   box-shadow: 0 0 16px 4px rgba(131, 100, 232, 0.4);
 }
+
