@@ -151,17 +151,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 45px;
-    height: 45px;
+    height: 100%;
     border: none;
-    border-radius: 50%;
+    border-radius: 0;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     transition-duration: .3s;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-    background-color: rgb(0, 0, 0);
-  }
+    background-color: transparent;
+}
+
   
   /* plus sign */
   .sign {
