@@ -93,7 +93,7 @@
                               </form>
                             </div>
                             <div class="modal-footer">
-                              <button class="button btn-block btn-large" style="--clr: #00ad54;" (click)="recuperarPassword()">
+                              <button class="btn button btn-block btn-large" style="--clr: #00ad54;" (click)="recuperarPassword()" [disabled]="!formRecovery.valid">
                                 <span class="button-decor"></span>
                                 <div class="button-content">
                                     <div class="button__icon">

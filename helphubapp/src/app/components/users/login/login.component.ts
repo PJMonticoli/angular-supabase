@@ -86,11 +86,13 @@ export class LoginComponent {
           this.router.navigate(['/']);
         },
         error : (err : any)=>{
-          this.toastr.success("Error al intentar enviar correo de recuperación de contraseña.");
+          this.toastr.error("Error al intentar enviar correo de recuperación de contraseña.");
           console.log(err);
         }
       });
 
+    } else{
+      this.toastr.error("Error al intentar enviar correo de recuperación de contraseña, complete todos los campos");
     }
   }
 
