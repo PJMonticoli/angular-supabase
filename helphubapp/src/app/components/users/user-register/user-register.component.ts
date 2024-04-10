@@ -54,17 +54,22 @@ export class UserRegisterComponent {
     if (this.formulario.valid) {
       const email = this.formulario.value.email;
       const password = this.formulario.value.password;
-
+  
       this.servicioSupabase.signUp(email, password).subscribe({
         next: () => {
           this.toastr.success("Usuario registrado con éxito");
           this.router.navigate(['/user-login']);
         },
         error: (err) => {
-          this.toastr.error("Error al registrarse, revise y complete todos los campos!");
+          if (err.status === 422 && err.error && err.error.error_code === "user_already_exists") {
+            this.toastr.error("El correo electrónico ya está en uso, por favor ingrese otro diferente.");
+          } else {
+            this.toastr.error("Error al registrarse, revise y complete todos los campos!");
+          }
           console.log(err);
         }
       });
     }
   }
+  
 }
