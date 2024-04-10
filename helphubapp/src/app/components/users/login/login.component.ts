@@ -17,9 +17,7 @@ export class LoginComponent {
   formulario: FormGroup;
   formRecovery: FormGroup;
   fieldTextType: boolean = false;
-  @Input() modalId: number = 1;
-  mostrarCheckboxTerminos: boolean = false;
-  @Output() userAuthenticated = new EventEmitter<any>();
+
   constructor(
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,

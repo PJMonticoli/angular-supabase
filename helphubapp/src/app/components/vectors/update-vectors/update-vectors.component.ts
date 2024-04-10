@@ -60,7 +60,7 @@ export class UpdateVectorsComponent implements OnInit,OnDestroy {
         };
   
         this.servicioSupabase.modificar(vectorId, vectorData).subscribe({
-          next: (response: any) => {
+          next: () => {
             this.toastr.success('Actualizo el registro con éxito');
             this.onUpdate.emit();
           },

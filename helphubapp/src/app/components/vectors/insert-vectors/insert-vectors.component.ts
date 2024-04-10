@@ -14,7 +14,6 @@ import { SupabaseService } from '../../../services/supabase.service';
 })
 export class InsertVectorsComponent implements OnInit,OnDestroy {
   @Input() vector: any;
-  @Output() onUpdate = new EventEmitter<any>();
   @Output() onAgregar = new EventEmitter();
   private subscription = new Subscription();
   formulario!: FormGroup;

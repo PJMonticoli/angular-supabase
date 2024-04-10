@@ -17,9 +17,9 @@ export class UserUpdateComponent {
   private subscription = new Subscription();
   formulario: FormGroup;
   fieldTextType: boolean = false;
-  @Input() modalId: number = 1;
-  mostrarCheckboxTerminos: boolean = false;
-  @Output() userAuthenticated = new EventEmitter<any>();
+
+
+
   constructor(
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,

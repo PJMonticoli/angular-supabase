@@ -17,8 +17,8 @@ export class UserRegisterComponent {
   private subscription = new Subscription();
   formulario: FormGroup;
   fieldTextType: boolean = false;
-  @Input() modalId: number = 1;
-  mostrarCheckboxTerminos: boolean = false;
+
+
   constructor(
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,
