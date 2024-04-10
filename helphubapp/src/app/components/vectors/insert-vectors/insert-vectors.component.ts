@@ -13,7 +13,6 @@ import { SupabaseService } from '../../../services/supabase.service';
   styleUrl: './insert-vectors.component.css'
 })
 export class InsertVectorsComponent implements OnInit,OnDestroy {
-  @Input() isEdit: boolean = false;
   @Input() vector: any;
   @Output() onUpdate = new EventEmitter<any>();
   @Output() onAgregar = new EventEmitter();
