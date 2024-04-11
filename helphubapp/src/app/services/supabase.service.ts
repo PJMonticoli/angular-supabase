@@ -18,15 +18,6 @@ export class SupabaseService {
 
   //CRUD USER
 
-  //GET usuario por id 
-  getVectorsByUserId(user_id: string): Observable<any> {
-    const headers = {
-      'apikey': environment.apiKey,
-      'Authorization': `Bearer ${this.getToken()}`
-    };
-    return this.http.get(`${environment.apiUrl}/rest/v1/vectors_table?user_id=eq.${user_id}`, { headers });
-  }
-
   //Iniciar Sesión
   signIn(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
@@ -148,6 +139,14 @@ isLoggedIn(): boolean {
   }
 
   // CRUD VECTORS_TABLE
+  //GET Vectores by user_id
+  getVectorsByUserId(user_id: string): Observable<any> {
+    const headers = {
+      'apikey': environment.apiKey,
+      'Authorization': `Bearer ${this.getToken()}`
+    };
+    return this.http.get(`${environment.apiUrl}/rest/v1/vectors_table?user_id=eq.${user_id}`, { headers });
+  }
 
   // Registrar vector
   insert(vectorData: any): Observable<any> {
