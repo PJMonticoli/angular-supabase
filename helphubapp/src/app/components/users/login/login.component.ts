@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SupabaseService } from '../../../services/supabase.service';
 import { Subscription } from 'rxjs';
@@ -17,7 +17,7 @@ export class LoginComponent {
   formulario: FormGroup;
   formRecovery: FormGroup;
   fieldTextType: boolean = false;
-
+  deshabilitarBoton : boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private servicioSupabase : SupabaseService,
@@ -80,10 +80,12 @@ export class LoginComponent {
     if (this.formRecovery.valid) {
       this.servicioSupabase.recoverPassword(email).subscribe({
         next : ()=>{
+          this.deshabilitarBoton = true;
           this.toastr.success("Se ha enviado un enlace de recuperación de contraseña al correo electrónico proporcionado.");
           this.router.navigate(['/']);
         },
         error : (err : any)=>{
+          this.deshabilitarBoton = false;
           this.toastr.error("Error al intentar enviar correo de recuperación de contraseña.");
           console.log(err);
         }
@@ -96,6 +98,20 @@ export class LoginComponent {
 
   limpiarFormulario() {
     this.formRecovery.reset(); 
+  }
+
+  handleKeyDown(event: KeyboardEvent) {
+    // Verifica si se presionó la tecla Enter
+    if (event.key === 'Enter') {
+      event.preventDefault();
+
+      if (this.formulario.valid) {
+        this.iniciarSesion();
+      }
+      else if(this.formRecovery.valid){
+        this.recuperarPassword();
+      }
+    }
   }
 }
 

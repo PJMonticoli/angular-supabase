@@ -71,5 +71,14 @@ export class UserRegisterComponent {
       });
     }
   }
-  
+  handleKeyDown(event: KeyboardEvent) {
+    // Verifica si se presionó la tecla Enter
+    if (event.key === 'Enter') {
+      event.preventDefault();
+
+      if (this.formulario.valid) {
+        this.register();
+      }
+    }
+  }
 }

@@ -18,16 +18,16 @@ constructor(private toastr: ToastrService,private servicioSupabase : SupabaseSer
   ) { }
 
   cerrarSesion() {
-   this.servicioSupabase.logout().subscribe({
-    next : ()=>{
-      this.toastr.success('Cerro Sesión con éxito','Éxito',{timeOut:1500});
-    },
-    error : (err)=>{
-      console.log(err);
-      this.toastr.error('Error al intentar Cerrar Sesión','Error',{timeOut:1500});
-    }
-   }) 
-  }
+    this.servicioSupabase.logout().subscribe({
+     next : ()=>{
+       this.toastr.success('Cerro Sesión con éxito','Éxito',{timeOut:1500});
+     },
+     error : (err)=>{
+       console.log(err);
+       this.toastr.error('Error al intentar Cerrar Sesión','Error',{timeOut:1500});
+     }
+    }) 
+   }
 
   // con el "!!" convierto el valor en boolean
   isLoggedIn(): boolean {

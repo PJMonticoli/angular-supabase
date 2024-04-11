@@ -2,7 +2,7 @@
 <div class="fondo">
     <div class="container-fluid">
         <h1 class="titulo text-center text-uppercase py-5 animate__animated animate__slideInLeft">Registro de Usuario</h1>
-        <form [formGroup]="formulario" class="container align-center">
+        <form [formGroup]="formulario" class="container align-center" (ngSubmit)="register()" (keydown)="handleKeyDown($event)">
           <div class="form-group animate__animated animate__fadeInLeftBig">
             <div class="row">
               <div class="col col-md-12 col-sm-12">
@@ -67,7 +67,7 @@
                   
 
                   <br>
-                  <button type="submit" class="btn btn-primary button btn-block btn-large mt-2 fw-semibold bi bi-person-fill-add" [disabled]="!formulario.valid" (click)="register()">
+                  <button type="submit" class="btn btn-primary button btn-block btn-large mt-2 fw-semibold bi bi-person-fill-add" [disabled]="!formulario.valid">
                     Registrarme
                   </button>
                 </div>
