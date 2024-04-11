@@ -80,11 +80,11 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
   
         this.supabaseService.insert(vectorData).subscribe({
           next: (response: any) => {
-            this.toastr.success('Registro insertado con éxito');
+            this.toastr.success('Registro insertado con éxito','Éxito',{timeOut:1500});
             this.onAgregar.emit();
           },
           error: (err: any) => {
-            this.toastr.error('Error al insertar el registro');
+            this.toastr.error('Error al insertar el registro','Error',{timeOut:1500});
             console.error(err);
           }
         });
@@ -92,7 +92,7 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
         this.toastr.error(error.message);
       }
     }else{
-      this.toastr.error('Revise y complete todos los campos!');
+      this.toastr.error('Revise y complete todos los campos!','Error',{timeOut:1500});
     }
   }
   

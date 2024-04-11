@@ -31,11 +31,11 @@ export class DeleteVectorsComponent{
         this.subscription.add(
           this.servicioSupabase.deleteVector(vector_id).subscribe({
             next : ()=>{
-              this.toastr.success('Eliminaste el registro con éxito');
+              this.toastr.success('Eliminaste el registro con éxito','Éxito',{timeOut:1500});
               this.onEliminado.emit();
             },
             error : (err : any)=>{
-              this.toastr.success('Error al intentar eliminar registro');
+              this.toastr.success('Error al intentar eliminar registro','Error',{timeOut:1500});
             }
           }))
       }

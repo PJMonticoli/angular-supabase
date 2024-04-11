@@ -57,14 +57,14 @@ export class UserRegisterComponent {
   
       this.servicioSupabase.signUp(email, password).subscribe({
         next: () => {
-          this.toastr.success("Usuario registrado con éxito");
+          this.toastr.success("Usuario registrado con éxito",'Bienvenido!',{timeOut:1500});
           this.router.navigate(['/user-login']);
         },
         error: (err) => {
           if (err.status === 422 && err.error && err.error.error_code === "user_already_exists") {
-            this.toastr.error("El correo electrónico ya está en uso, por favor ingrese otro diferente.");
+            this.toastr.error("El correo electrónico ya está en uso, por favor ingrese otro diferente.",'Error',{timeOut:1500});
           } else {
-            this.toastr.error("Error al registrarse, revise y complete todos los campos!");
+            this.toastr.error("Error al registrarse, revise y complete todos los campos!",'Error',{timeOut:1500});
           }
           console.log(err);
         }

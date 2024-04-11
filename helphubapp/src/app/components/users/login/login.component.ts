@@ -63,12 +63,12 @@ export class LoginComponent {
   
       this.servicioSupabase.signIn(email, password).subscribe({
         next: (response: any) => {
-          this.toastr.success("Inicio Sesión con éxito, Bienvenido!");
+          this.toastr.success("Inicio Sesión con éxito",'Bienvenido!',{timeOut:1500});
           this.servicioSupabase.setUser(response.user.id); 
           this.router.navigate(['/vectors_table']);
         },
         error: (err) => {
-          this.toastr.error("Correo electrónico y/o contraseña incorrecta");
+          this.toastr.error("Correo electrónico y/o contraseña incorrecta",'Error',{timeOut:1500});
           console.log(err);
         }
       });
