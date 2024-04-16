@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 .fondo{
-    background-image: url('../../../../assets/img/home.jpg');
+    background-image: url('../../../../assets/img/fondovectores.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -7,8 +8,9 @@
 }
 
 .titulo {
-    font-family: "Lora", serif;
-    font-weight: 700;
+  font-family: 'Azonix', sans-serif;
+  font-weight: 700;
+  font-size: xx-large;
   }
 
 .btn-primary:hover,
@@ -19,4 +21,8 @@
 }
 .btn-primary[disabled]{
   background-color: grey;
+}
+
+td{
+  font-family: 'Saira', sans-serif;
 }
