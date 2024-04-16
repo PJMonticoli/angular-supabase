@@ -106,14 +106,14 @@
   }
 
   .btn {
-    width: 6.5em;
+    width:7.5em;
     height: 2.1em;
     margin: 0.1em;
     background: black;
     color: white;
     border: none;
     border-radius: 0.625em;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     position: relative;
@@ -215,4 +215,6 @@
   }
 
 
-  
+.button-font {
+  font-family: 'Azonix', sans-serif;
+}

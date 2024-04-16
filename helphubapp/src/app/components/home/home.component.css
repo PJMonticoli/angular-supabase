@@ -9,16 +9,9 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: "Lora", serif;
 }
 
-.hero h1 {
-  font-size: 36px; 
-}
 
-.hero p {
-  font-size: 24px; 
-}
 
 
 .features {
@@ -44,18 +37,6 @@
   margin-bottom: 20px;
 }
 
-.feature h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.feature p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-
-
 .cta {
   background-color: #222; 
   padding: 50px 0;
@@ -67,7 +48,6 @@
 .hero p,
 .features h2,
 .feature h3,
-.feature p,
 .cta h2,
 .cta button {
   color: #fff;
@@ -78,17 +58,12 @@
   background-color: rgb(120, 207, 236);
 }
 
-.titulo{
-  font-family: "Lora", serif;
-  font-weight: 700;
-  font-size: xx-large;
-}
+
 
 .social-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #222;  */
   box-shadow: 0px 0px 15px #00000027;
   padding: 15px 10px;
   border-radius: 5em;
@@ -167,15 +142,6 @@
   fill: #c13584;
 }
 
-
-/* .container-footer {
-  background-image: url("../../../assets/img/footer.jpg");
-  background-repeat: no-repeat;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-} */
-
 .btn:link,
 .btn:visited {
  text-transform: uppercase;
@@ -215,4 +181,11 @@
  background-color: rgb(0, 238, 255);
  transform: scaleX(1.4) scaleY(1.5);
  opacity: 0;
+}
+
+h1,
+h2,
+h3,
+p{
+  font-family: 'Azonix', sans-serif;
 }

@@ -62,12 +62,12 @@
                 }
             </ul>
             @if(!isLoggedIn()) {
-                <button class="btn btn-primary" routerLink="/user-register">Sign-Up</button>
-                <button class="btn btn-success" routerLink="/user-login">Sign-In</button>
+                <button class="btn btn-primary button-font" routerLink="/user-register">Sign-Up</button>
+                <button class="btn btn-success button-font" routerLink="/user-login">Sign-In</button>
 
             }
             @else if (isLoggedIn()){
-                <button class="btn btn-success" (click)="cerrarSesion()" routerLink="">Log-Out</button>
+                <button class="btn btn-success button-font" (click)="cerrarSesion()" routerLink="">Log-Out</button>
             }
         </div>
     </div>

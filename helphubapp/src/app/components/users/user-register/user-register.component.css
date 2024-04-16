@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 .btn {
   display: inline-block;
   padding: 4px 10px 4px;
@@ -53,7 +53,7 @@ h1 {
 
 
 .titulo {
-  font-family: "Lora", serif;
+  font-family: 'Azonix', sans-serif;
   font-weight: 700;
   font-size: xx-large;
 }
@@ -110,4 +110,14 @@ h1 {
 .button:active {
   scale: 0.95;
   box-shadow: 0 0 16px 4px rgba(131, 100, 232, 0.4);
+}
+label, a, span, h1{
+  font-family: 'Azonix', sans-serif;
+}
+
+p,h1{
+  font-family: 'Saira', sans-serif;
+}
+.button-font{
+  font-family: 'Azonix', sans-serif;
 }

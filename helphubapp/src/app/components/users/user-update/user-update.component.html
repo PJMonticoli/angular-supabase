@@ -1,7 +1,7 @@
 
 <div class="fondo">
     <div class="container-fluid">
-        <h1 class="titulo text-center text-uppercase py-5 animate__animated animate__slideInLeft">Recuperar Contraseña</h1>
+        <h1 class="titulo text-center text-uppercase py-5 animate__animated animate__slideInLeft">Cambiar Contraseña</h1>
         <form [formGroup]="formulario" class="container align-center animate__animated animate__fadeInLeftBig">
           <div class="form-group">
             <div class="row">
@@ -9,8 +9,8 @@
                 <div class="mb-3">
                   <label
                     for="inputEmail"
-                    class="form-label text-white"
-                    style="font-size: 1.2rem"
+                    class="form-label text-white py-3"
+                    style="font-size: 1.2rem" 
                     >Correo electrónico</label>
   
                     <div class="input-group">
@@ -31,7 +31,7 @@
 
                     </div>
                     
-                    <label for="inputPassword" class="form-label text-white mt-2" style="font-size: 1.2rem">Contraseña</label>
+                    <label for="inputPassword" class="form-label text-white mt-2 py-3" style="font-size: 1.2rem">Contraseña</label>
 
                     <div class="input-group">
                       <div class="input-group-append">
@@ -64,7 +64,7 @@
                     </div>
                   
                   <br>
-                  <button class="button btn btn-block btn-large" [disabled]="!formulario.valid" (click)="cambiarPassword()" routerLink="/user-login"> Cambiar contraseña
+                  <button class="button btn btn-block btn-large button-font" [disabled]="!formulario.valid" (click)="cambiarPassword()" routerLink="/user-login"> Cambiar contraseña
                   </button>
                 </div>
               </div>
