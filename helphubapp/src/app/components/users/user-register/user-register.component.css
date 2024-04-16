@@ -99,7 +99,7 @@ h1 {
 
 .button:hover {
   color: #e8e8e8;
-  background-color: #8364e8;
+  background-color: rgb(41, 160, 41);
   box-shadow: 0 0 24px 8px rgba(131, 100, 232, 0.4);
 }
 
