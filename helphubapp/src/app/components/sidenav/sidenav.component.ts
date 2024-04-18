@@ -18,6 +18,8 @@ constructor(private toastr: ToastrService,private servicioSupabase : SupabaseSer
   ) { }
 
   cerrarSesion() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_id');
     this.servicioSupabase.logout().subscribe({
      next : ()=>{
        this.toastr.success('Cerro Sesión con éxito','Éxito',{timeOut:1500});
