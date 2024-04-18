@@ -19,7 +19,7 @@
                           <i class="bi bi-person-fill"></i>
                         </div>
                       </div>
-                      <input type="text" placeholder="ejemplo@hotmail.com" required="required"
+                      <input type="text" placeholder="Ingresar correo" required="required"
                         formControlName="email"
                         class="form-control"
                         [class.is-invalid]="controlEmail.touched && controlEmail.hasError('required')"
@@ -42,7 +42,7 @@
                       <input
                         type="{{ fieldTextType ? 'text' : 'password' }}" 
                         name="p"
-                        placeholder="Ingrese su contraseña"
+                        placeholder="Ingresar contraseña"
                         required="required"
                         formControlName="password"
                         class="form-control"
