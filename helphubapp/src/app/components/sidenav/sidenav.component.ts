@@ -29,6 +29,7 @@ constructor(private toastr: ToastrService,private servicioSupabase : SupabaseSer
         this.servicioSupabase.logout().subscribe({
          next : ()=>{
            this.toastr.success('Cerro Sesión con éxito','Éxito',{timeOut:1500});
+           this.toastr.success('Cerro Sesión con éxito','Éxito',{timeOut:1500});
          },
          error : ()=>{
            localStorage.removeItem('access_token');
