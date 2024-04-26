@@ -79,7 +79,7 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
         };
   
         this.supabaseService.insert(vectorData).subscribe({
-          next: (response: any) => {
+          next: () => {
             this.toastr.success('Registro insertado con éxito','Éxito',{timeOut:1500});
             this.onAgregar.emit();
           },
