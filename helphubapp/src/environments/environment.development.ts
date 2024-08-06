@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: 'https://clmbycdkqregnncdefjm.supabase.co',
+  apiUrl: 'https://gijiqfkwdihsaaddvcue.supabase.co',
   apiKey:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsbWJ5Y2RrcXJlZ25uY2RlZmptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI4ODcxMTQsImV4cCI6MjAzODQ2MzExNH0.sbZB7pScGdZ7t091Ef7sZxgWE9RbSzxEWzPk92xRQAw',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpamlxZmt3ZGloc2FhZGR2Y3VlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI5NTA4OTMsImV4cCI6MjAzODUyNjg5M30.KWWhx9MOd7HziTPuwlMaGKbZU8GBZuvFfR4I9Cd8qmA',
 };
