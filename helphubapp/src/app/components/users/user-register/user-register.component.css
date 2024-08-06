@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
 .btn {
   display: inline-block;
   padding: 4px 10px 4px;
@@ -26,14 +26,12 @@
   border-radius: 5px;
 }
 
-
-.btn-primary[disabled]{
+.btn-primary[disabled] {
   background-color: grey;
 }
 .btn-primary:hover,
 .btn-primary:active,
-.btn-primary.active
- {
+.btn-primary.active {
   filter: none;
   background-color: #4ea15c;
 }
@@ -42,24 +40,24 @@
   display: block;
 }
 
-
 h1 {
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
   text-align: center;
-} 
-
-
+}
 
 .titulo {
-  font-family: 'Azonix', sans-serif;
+  font-family: "Azonix", sans-serif;
   font-weight: 700;
   font-size: xx-large;
 }
 
 .fondo {
-  background-image: url("../../../../assets/img/logo5.jpg");
+  background: #f0f2f0;
+  background: -webkit-linear-gradient(to right, #000c40, #f0f2f0);
+  background: linear-gradient(to right, #000c40, #f0f2f0);
+
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -111,13 +109,17 @@ h1 {
   scale: 0.95;
   box-shadow: 0 0 16px 4px rgba(131, 100, 232, 0.4);
 }
-label, a, span, h1{
-  font-family: 'Azonix', sans-serif;
+label,
+a,
+span,
+h1 {
+  font-family: "Azonix", sans-serif;
 }
 
-p,h1{
-  font-family: 'Saira', sans-serif;
+p,
+h1 {
+  font-family: "Saira", sans-serif;
 }
-.button-font{
-  font-family: 'Azonix', sans-serif;
+.button-font {
+  font-family: "Azonix", sans-serif;
 }

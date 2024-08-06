@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-.form-label{
-    color: black;
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
+.form-label {
+  color: black;
 }
-h1,label{
-    font-family: 'Azonix', sans-serif;
+h1,
+label {
+  font-family: "Azonix", sans-serif;
 }
 
-.button-font{
-    font-family: 'Azonix', sans-serif;
+.button-font {
+  font-family: "Azonix", sans-serif;
 }
-.btn-outline-secondary:hover {
-    background-color: #84d578;
+.btn-primary:hover {
+  background-color: #84d578;
 }

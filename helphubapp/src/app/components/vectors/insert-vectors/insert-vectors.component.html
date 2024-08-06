@@ -1,43 +1,98 @@
-<button type="button" class="btn btn-outline-secondary bi bi-plus-lg button-font" data-bs-toggle="modal" data-bs-target="#modalregistro" data-bs-whatever="@mdo"> Nuevo Registro</button>
+<button
+  type="button"
+  class="btn btn-primary bi bi-plus-lg button-font"
+  data-bs-toggle="modal"
+  data-bs-target="#modalregistro"
+  data-bs-whatever="@mdo"
+>
+  Nuevo Registro
+</button>
 
-<div class="modal fade animate__animated animate__bounceInDown" id="modalregistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" (hidden.bs.modal)="limpiarFormulario()">
+<div
+  class="modal fade animate__animated animate__bounceInDown"
+  id="modalregistro"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  (hidden.bs.modal)="limpiarFormulario()"
+>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Preguntas y Respuestas</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">
+          Preguntas y Respuestas
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="formulario">
           <div class="mb-3">
             <label for="pregunta" class="form-label">Pregunta</label>
-            <textarea class="form-control" id="pregunta" formControlName="pregunta"
-              [class.is-invalid]="controlPregunta.touched && controlPregunta.hasError('required')"></textarea>
-              @if (controlPregunta.touched && controlPregunta.hasError('required')) {
-                <p class="invalid-feedback"> Campo Pregunta es requerido</p>
-              }
+            <textarea
+              class="form-control"
+              id="pregunta"
+              formControlName="pregunta"
+              [class.is-invalid]="
+                controlPregunta.touched && controlPregunta.hasError('required')
+              "
+            ></textarea>
+            @if (controlPregunta.touched &&
+            controlPregunta.hasError('required')) {
+            <p class="invalid-feedback">Campo Pregunta es requerido</p>
+            }
           </div>
           <div class="mb-3">
             <label for="respuesta" class="form-label">Respuesta</label>
-            <textarea class="form-control" id="respuesta" formControlName="respuesta"
-              [class.is-invalid]="controlRespuesta.touched && controlRespuesta.hasError('required')"></textarea>
-              @if (controlRespuesta.touched && controlRespuesta.hasError('required')) {
-                <p class="invalid-feedback"> Campo Respuesta es requerido</p>
-              }
+            <textarea
+              class="form-control"
+              id="respuesta"
+              formControlName="respuesta"
+              [class.is-invalid]="
+                controlRespuesta.touched &&
+                controlRespuesta.hasError('required')
+              "
+            ></textarea>
+            @if (controlRespuesta.touched &&
+            controlRespuesta.hasError('required')) {
+            <p class="invalid-feedback">Campo Respuesta es requerido</p>
+            }
           </div>
           <div class="mb-3 d-flex align-items-center">
-            <input #activo type="checkbox" name="estado" class="form-check-input" formControlName="estado" id="estado" />
+            <input
+              #activo
+              type="checkbox"
+              name="estado"
+              class="form-check-input"
+              formControlName="estado"
+              id="estado"
+            />
             <label for="estado" class="form-label ms-2 mb-0">Estado</label>
           </div>
-          
         </form>
       </div>
-      
+
       <div class="modal-footer d-flex justify-content-center">
-        <button type="button" class="btn btn-outline-success button-font"  data-bs-dismiss="modal" (click)="insert()">Registrar</button>
-        <button type="button" class="btn btn-outline-danger button-font" data-bs-dismiss="modal">Cerrar</button>
+        <button
+          type="button"
+          class="btn btn-outline-success button-font"
+          data-bs-dismiss="modal"
+          (click)="insert()"
+        >
+          Registrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger button-font"
+          data-bs-dismiss="modal"
+        >
+          Cerrar
+        </button>
       </div>
-      
     </div>
   </div>
 </div>

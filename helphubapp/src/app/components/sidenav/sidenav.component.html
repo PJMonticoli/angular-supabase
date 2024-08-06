@@ -1,34 +1,48 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container-fluid">
-        <button class="button" data-text="Awesome" routerLink="">
-            <span class="actual-text">&nbsp;HelpHub&nbsp;</span>
-            <span aria-hidden="true" class="hover-text">&nbsp;HelpHub&nbsp;</span>
-        </button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                @if (isLoggedIn()) {
-                    <li class="nav-item">
-                        <button class="button" data-text="Awesome" routerLink="vectors_table">
-                            <span class="actual-text">&nbsp;Tabla&nbsp;</span>
-                            <span aria-hidden="true" class="hover-text">&nbsp;Tabla&nbsp;</span>
-                        </button>
-                    </li>
-                }
-            </ul>
-            @if(!isLoggedIn()) {
-                <button class="btn btn-primary button-font" routerLink="/user-register">Sign-Up</button>
-                <button class="btn btn-success button-font" routerLink="/user-login">Sign-In</button>
+  <div class="container-fluid">
+    <button class="button" data-text="Awesome" routerLink="">
+      <span class="actual-text">&nbsp;PabloDev&nbsp;</span>
+      <span aria-hidden="true" class="hover-text">&nbsp;PabloDev&nbsp;</span>
+    </button>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        @if (isLoggedIn()) {
+        <li class="nav-item">
+          <button class="button" data-text="Awesome" routerLink="vectors_table">
+            <span class="actual-text">&nbsp;Tabla&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;Tabla&nbsp;</span>
+          </button>
+        </li>
+        }
+      </ul>
+      @if(!isLoggedIn()) {
+      <button class="btn btn-primary button-font" routerLink="/user-register">
+        Sign-Up
+      </button>
+      <button class="btn btn-success button-font" routerLink="/user-login">
+        Sign-In
+      </button>
 
-            }
-            @else if (isLoggedIn()){
-                <button class="btn btn-success button-font" (click)="cerrarSesion()" routerLink="">Log-Out</button>
-            }
-        </div>
+      } @else if (isLoggedIn()){
+      <button
+        class="btn btn-success button-font"
+        (click)="cerrarSesion()"
+        routerLink=""
+      >
+        Log-Out
+      </button>
+      }
     </div>
+  </div>
 </nav>
-
-
-

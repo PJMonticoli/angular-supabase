@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
 .btn {
   display: inline-block;
   padding: 4px 10px 4px;
@@ -24,14 +24,12 @@
   border-radius: 5px;
 }
 
-
-.btn-primary[disabled]{
+.btn-primary[disabled] {
   background-color: grey;
 }
 .btn-primary:hover,
 .btn-primary:active,
-.btn-primary.active
- {
+.btn-primary.active {
   filter: none;
   background-color: #4ea15c;
 }
@@ -40,24 +38,24 @@
   display: block;
 }
 
-
 h1 {
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
   text-align: center;
-} 
-
-
+}
 
 .titulo {
-  font-family: 'Azonix', sans-serif;
+  font-family: "Azonix", sans-serif;
   font-weight: 700;
   font-size: xx-large;
 }
 
 .fondo {
-  background-image: url("../../../../assets/img/logo5.jpg");
+  background: #f0f2f0;
+  background: -webkit-linear-gradient(to right, #000c40, #f0f2f0);
+  background: linear-gradient(to right, #000c40, #f0f2f0);
+
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -68,12 +66,12 @@ h1 {
   padding: 20px;
 }
 .icon-link {
-  color: white; 
-  text-decoration: none; 
+  color: white;
+  text-decoration: none;
 }
 
 .icon-link:hover {
-  color: rgb(25, 135, 84); 
+  color: rgb(25, 135, 84);
 }
 
 .button {
@@ -82,7 +80,7 @@ h1 {
   border-radius: 1.5rem;
   overflow: hidden;
   position: relative;
-  box-shadow: 10px 10px 20px rgba(0,0,0,.05);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
   background-color: #fff;
   color: #121212;
   border: none;
@@ -94,7 +92,7 @@ h1 {
   inset: 0;
   background-color: var(--clr);
   transform: translateX(-100%);
-  transition: transform .3s;
+  transition: transform 0.3s;
   z-index: 0;
 }
 
@@ -116,13 +114,12 @@ h1 {
 
 .button__text {
   display: inline-block;
-  transition: color .2s;
+  transition: color 0.2s;
   padding: 2px 1.5rem 2px;
-  padding-left: .75rem;
+  padding-left: 0.75rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-
 }
 
 .button:hover .button__text {
@@ -132,7 +129,6 @@ h1 {
 .button:hover .button-decor {
   transform: translate(0);
 }
-
 
 .loginbutton {
   position: relative;
@@ -147,7 +143,7 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.4s ease;
-  font-family: 'Azonix', sans-serif;
+  font-family: "Azonix", sans-serif;
 }
 
 .loginbutton:before {
@@ -177,10 +173,14 @@ h1 {
   box-shadow: 0 0 16px 4px rgba(131, 100, 232, 0.4);
 }
 
-label, a, span, h1{
-  font-family: 'Azonix', sans-serif;
+label,
+a,
+span,
+h1 {
+  font-family: "Azonix", sans-serif;
 }
 
-p,h1{
-  font-family: 'Saira', sans-serif;
+p,
+h1 {
+  font-family: "Saira", sans-serif;
 }
