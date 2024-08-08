@@ -1,9 +1,8 @@
 .fondo {
-  background-size: cover;
-  background-image: url("../../../../assets/img/home.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
+  background: #232526;  
+  background: -webkit-linear-gradient(to right, #414345, #232526);  
+  background: linear-gradient(to right, #414345, #232526); 
+  
 }
 
 .titulo {
