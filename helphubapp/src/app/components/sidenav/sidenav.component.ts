@@ -1,8 +1,8 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SupabaseService } from '../../services/supabase.service';
-import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-sidenav',
   standalone: true,

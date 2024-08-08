@@ -9,7 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { SupabaseService } from '../services/supabase.service';
-// import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Injectable({
   providedIn: 'root',
