@@ -59,11 +59,9 @@ export class UserRegisterComponent {
 
       this.servicioSupabase.signUp(email, password).subscribe({
         next: () => {
-          this.toastr.success(
-            '¡Registro exitoso! Por favor, revisa tu correo electrónico y confirma tu cuenta siguiendo el enlace proporcionado en el mensaje que te hemos enviado',
-            'Bienvenido!',
-            { timeOut: 2000 }
-          );
+          this.toastr.success('¡Registro realizado con éxito!', 'Bienvenido!', {
+            timeOut: 2000,
+          });
           this.router.navigate(['/user-login']);
         },
         error: (err) => {
