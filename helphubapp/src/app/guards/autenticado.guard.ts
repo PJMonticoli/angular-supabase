@@ -9,7 +9,6 @@ import {
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { SupabaseService } from '../services/supabase.service';
-// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Injectable({
   providedIn: 'root',
@@ -32,11 +31,6 @@ export class AutenticadoGuard implements CanActivate {
     if (this.servicioSupabase.isLoggedIn()) {
       return true;
     } else {
-      // Swal.fire({
-      //   title: 'Atención!',
-      //   text: 'Necesitas iniciar sesión para acceder a este recurso',
-      //   icon: 'info',
-      // });
       this.toastr.info(
         'You need to log in to access this resource',
         'Attention!',

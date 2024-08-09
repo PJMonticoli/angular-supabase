@@ -5,7 +5,7 @@
   data-bs-target="#modalregistro"
   data-bs-whatever="@mdo"
 >
-  Nuevo Registro
+  New
 </button>
 
 <div
@@ -20,7 +20,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">
-          Preguntas y Respuestas
+          New Registration
         </h1>
         <button
           type="button"
@@ -32,7 +32,7 @@
       <div class="modal-body">
         <form [formGroup]="formulario">
           <div class="mb-3">
-            <label for="pregunta" class="form-label">Pregunta</label>
+            <label for="pregunta" class="form-label">Question</label>
             <textarea
               class="form-control"
               id="pregunta"
@@ -43,11 +43,11 @@
             ></textarea>
             @if (controlPregunta.touched &&
             controlPregunta.hasError('required')) {
-            <p class="invalid-feedback">Campo Pregunta es requerido</p>
+            <p class="invalid-feedback">Question field is required</p>
             }
           </div>
           <div class="mb-3">
-            <label for="respuesta" class="form-label">Respuesta</label>
+            <label for="respuesta" class="form-label">Answer</label>
             <textarea
               class="form-control"
               id="respuesta"
@@ -59,7 +59,7 @@
             ></textarea>
             @if (controlRespuesta.touched &&
             controlRespuesta.hasError('required')) {
-            <p class="invalid-feedback">Campo Respuesta es requerido</p>
+            <p class="invalid-feedback">Answer field is required</p>
             }
           </div>
           <div class="mb-3 d-flex align-items-center">
@@ -71,7 +71,7 @@
               formControlName="estado"
               id="estado"
             />
-            <label for="estado" class="form-label ms-2 mb-0">Estado</label>
+            <label for="estado" class="form-label ms-2 mb-0">Status</label>
           </div>
         </form>
       </div>
@@ -83,14 +83,14 @@
           data-bs-dismiss="modal"
           (click)="insert()"
         >
-          Registrar
+          Save
         </button>
         <button
           type="button"
           class="btn btn-outline-danger button-font"
           data-bs-dismiss="modal"
         >
-          Cerrar
+          Cancel
         </button>
       </div>
     </div>

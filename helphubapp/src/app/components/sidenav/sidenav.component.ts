@@ -19,7 +19,7 @@ export class SidenavComponent {
   cerrarSesion() {
     this.servicioSupabase.logout().subscribe({
       next: () => {
-        this.toastr.success('Successfully logout', 'Éxito', {
+        this.toastr.success('Successfully logout', 'Successfully', {
           timeOut: 1500,
         });
       },
