@@ -1,75 +1,102 @@
-
 <div class="fondo">
-    <div class="container-fluid">
-        <h1 class="titulo text-center text-uppercase py-5">Restablecer Contraseña</h1>
-        <form [formGroup]="formulario" class="container align-center">
-          <div class="form-group">
-            <div class="row">
-              <div class="col col-md-12 col-sm-12">
-                <div class="mb-3">
-                  <label
-                    for="inputEmail"
-                    class="form-label text-white py-3"
-                    style="font-size: 1.2rem" 
-                    >Correo electrónico</label>
-  
-                    <div class="input-group">
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <i class="bi bi-person-fill"></i>
-                        </div>
-                      </div>
-                      <input type="text" placeholder="Ingrese su correo" required="required"
-                        formControlName="email"
-                        class="form-control"
-                        [class.is-invalid]="controlEmail.touched && controlEmail.hasError('required')"
-                        #inputEmail
-                      />
-                      @if (controlEmail.touched && controlEmail.hasError('required')) {
-                        <p class="invalid-feedback">Correo es requerido, complete el campo</p>
-                      }
+  <div class="container-fluid">
+    <h1 class="titulo text-center text-uppercase py-5">Reset Password</h1>
+    <form [formGroup]="formulario" class="container align-center">
+      <div class="form-group">
+        <div class="row">
+          <div class="col col-md-12 col-sm-12">
+            <div class="mb-3">
+              <label
+                for="inputEmail"
+                class="form-label text-white py-3"
+                style="font-size: 1.2rem"
+                >Email</label
+              >
 
-                    </div>
-                    
-                    <label for="inputPassword" class="form-label text-white mt-2 py-3" style="font-size: 1.2rem">Contraseña</label>
-
-                    <div class="input-group">
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <i class="bi bi-key-fill"></i>
-                        </div>
-                      </div>
-                      <input
-                        type="{{ fieldTextType ? 'text' : 'password' }}" 
-                        name="p"
-                        placeholder="Ingresar nueva contraseña"
-                        required="required"
-                        formControlName="password"
-                        class="form-control"
-                        [class.is-invalid]="controlPassword.touched && controlPassword.hasError('required')"
-                      />
-                    
-                        <button class="btn btn-outline-secondary" type="button" (click)="toggleFieldTextType()">
-                          @if(fieldTextType){
-                            <i class="bi bi-eye"></i>
-                          }@else {
-                            <i class="bi bi-eye-slash"></i>
-                          }
-                        </button>
-
-                    
-                      @if (controlPassword.touched && controlPassword.hasError('required')) {
-                        <p class="invalid-feedback">Contraseña es requerida, complete el campo</p>
-                      }
-                    </div>
-                  
-                  <br>
-                  <button class="button btn btn-block btn-large button-font" [disabled]="!formulario.valid" (click)="cambiarPassword()" routerLink="/user-login"> Cambiar contraseña
-                  </button>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="bi bi-person-fill"></i>
+                  </div>
                 </div>
+                <input
+                  type="text"
+                  placeholder="Enter email"
+                  required="required"
+                  formControlName="email"
+                  class="form-control"
+                  [class.is-invalid]="
+                    controlEmail.touched && controlEmail.hasError('required')
+                  "
+                  #inputEmail
+                />
+                @if (controlEmail.touched && controlEmail.hasError('required'))
+                {
+                <p class="invalid-feedback">
+                  Email is required, please complete
+                </p>
+                }
               </div>
+
+              <label
+                for="inputPassword"
+                class="form-label text-white mt-2 py-3"
+                style="font-size: 1.2rem"
+                >Password</label
+              >
+
+              <div class="input-group">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="bi bi-key-fill"></i>
+                  </div>
+                </div>
+                <input
+                  type="{{ fieldTextType ? 'text' : 'password' }}"
+                  name="p"
+                  placeholder="Enter your new password"
+                  required="required"
+                  formControlName="password"
+                  class="form-control"
+                  [class.is-invalid]="
+                    controlPassword.touched &&
+                    controlPassword.hasError('required')
+                  "
+                />
+
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  (click)="toggleFieldTextType()"
+                >
+                  @if(fieldTextType){
+                  <i class="bi bi-eye"></i>
+                  }@else {
+                  <i class="bi bi-eye-slash"></i>
+                  }
+                </button>
+
+                @if (controlPassword.touched &&
+                controlPassword.hasError('required')) {
+                <p class="invalid-feedback">
+                  Password is required, please complete
+                </p>
+                }
+              </div>
+
+              <br />
+              <button
+                class="button btn btn-block btn-large button-font"
+                [disabled]="!formulario.valid"
+                (click)="cambiarPassword()"
+                routerLink="/user-login"
+              >
+                Change Password
+              </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
+    </form>
   </div>
+</div>

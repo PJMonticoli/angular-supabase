@@ -1,6 +1,6 @@
 <div class="fondo">
   <div class="container-fluid py-5">
-    <h1 class="titulo text-center text-uppercase py-5">Iniciar Sesión</h1>
+    <h1 class="titulo text-center text-uppercase py-5">Login</h1>
     <form
       [formGroup]="formulario"
       class="container align-center"
@@ -15,7 +15,7 @@
                 for="inputEmail"
                 class="form-label text-white py-3"
                 style="font-size: 1.2rem"
-                >Correo electrónico</label
+                >Email</label
               >
 
               <div class="input-group">
@@ -26,7 +26,7 @@
                 </div>
                 <input
                   type="text"
-                  placeholder="Ingresar correo"
+                  placeholder="Enter email"
                   required="required"
                   formControlName="email"
                   class="form-control"
@@ -38,7 +38,7 @@
                 @if (controlEmail.touched && controlEmail.hasError('required'))
                 {
                 <p class="invalid-feedback">
-                  Correo es requerido, complete el campo
+                  Email is required, please complete
                 </p>
                 }
               </div>
@@ -47,7 +47,7 @@
                 for="inputPassword"
                 class="form-label text-white mt-2 py-3"
                 style="font-size: 1.2rem"
-                >Contraseña</label
+                >Password</label
               >
 
               <div class="input-group">
@@ -59,7 +59,7 @@
                 <input
                   type="{{ fieldTextType ? 'text' : 'password' }}"
                   name="p"
-                  placeholder="Ingresar contraseña"
+                  placeholder="Enter password"
                   required="required"
                   formControlName="password"
                   class="form-control"
@@ -84,7 +84,7 @@
                 @if (controlPassword.touched &&
                 controlPassword.hasError('required')) {
                 <p class="invalid-feedback">
-                  Contraseña es requerida, complete el campo
+                  Password is required, please complete
                 </p>
                 }
               </div>
@@ -95,7 +95,7 @@
                     class="icon-link icon-link-hover mt-2 fw-semibold"
                     routerLink="/user-register"
                   >
-                    ¿Nuevo en PabloDev? Regístrate
+                    ¿New here? Register now
                     <svg class="bi" aria-hidden="true">
                       <use xlink:href="#arrow-right"></use>
                     </svg>
@@ -108,7 +108,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
                   >
-                    ¿Olvidaste la contraseña?
+                    ¿Forgot your password?
                   </button>
 
                   <!-- Modal -->
@@ -127,7 +127,7 @@
                             class="modal-title fs-5 text-dark"
                             id="exampleModalLabel"
                           >
-                            Cambiar Contraseña
+                            Change Password
                           </h1>
                           <button
                             type="button"
@@ -140,14 +140,14 @@
                           <form [formGroup]="formRecovery">
                             <div class="mb-3">
                               <label for="recuperarEmail" class="form-label"
-                                >Email</label
+                                >Mail</label
                               >
                               <input
                                 type="email"
                                 class="form-control"
                                 id="recuperarEmail"
                                 formControlName="recuperarEmail"
-                                placeholder="Ingrese su email"
+                                placeholder="Enter email"
                               />
                             </div>
                           </form>
@@ -218,7 +218,7 @@
                                   </defs>
                                 </svg>
                               </div>
-                              <span class="button__text"> Enviar correo</span>
+                              <span class="button__text"> Send </span>
                             </div>
                           </button>
                         </div>
@@ -234,7 +234,7 @@
                 class="loginbutton btn btn-primary button btn-block btn-large mt-2 fw-semibold mt-2"
                 [disabled]="!formulario.valid"
               >
-                Iniciar Sesión
+                Login
               </button>
             </div>
           </div>

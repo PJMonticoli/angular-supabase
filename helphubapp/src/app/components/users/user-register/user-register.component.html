@@ -1,6 +1,6 @@
 <div class="fondo">
   <div class="container-fluid py-5">
-    <h1 class="titulo text-center text-uppercase py-5">Registro de Usuario</h1>
+    <h1 class="titulo text-center text-uppercase py-5">Sign Up</h1>
     <form
       [formGroup]="formulario"
       class="container align-center"
@@ -15,8 +15,8 @@
                 for="inputEmail"
                 class="form-label text-white py-3"
                 style="font-size: 1.2rem"
-                >Correo electrónico</label
-              >
+                >Email
+              </label>
 
               <div class="input-group">
                 <div class="input-group-append">
@@ -26,7 +26,7 @@
                 </div>
                 <input
                   type="text"
-                  placeholder="Ingrese un correo"
+                  placeholder="Enter email"
                   required="required"
                   formControlName="email"
                   class="form-control"
@@ -38,7 +38,7 @@
                 @if (controlEmail.touched && controlEmail.hasError('required'))
                 {
                 <p class="invalid-feedback">
-                  Correo es requerido, complete el campo
+                  Email is required, please complete
                 </p>
                 }
               </div>
@@ -47,7 +47,7 @@
                 for="inputPassword"
                 class="form-label text-white py-3"
                 style="font-size: 1.2rem"
-                >Contraseña</label
+                >Password</label
               >
 
               <div class="input-group">
@@ -59,7 +59,7 @@
                 <input
                   type="{{ fieldTextType ? 'text' : 'password' }}"
                   name="p"
-                  placeholder="Ingresar contraseña"
+                  placeholder="Enter password"
                   required="required"
                   formControlName="password"
                   class="form-control"
@@ -84,7 +84,7 @@
                 @if (controlPassword.touched &&
                 controlPassword.hasError('required')) {
                 <p class="invalid-feedback">
-                  Contraseña es requerida, complete el campo
+                  Password is required, please complete
                 </p>
                 }
               </div>
@@ -95,7 +95,7 @@
                 class="btn btn-primary button btn-block btn-large mt-2 fw-semibold button-font"
                 [disabled]="!formulario.valid"
               >
-                Registrarme
+                Register
               </button>
             </div>
           </div>
