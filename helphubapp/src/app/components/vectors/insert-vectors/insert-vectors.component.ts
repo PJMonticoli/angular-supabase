@@ -1,18 +1,32 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { SupabaseService } from '../../../services/supabase.service';
 
 @Component({
   selector: 'app-insert-vectors',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule],
+  imports: [ReactiveFormsModule, FormsModule],
   templateUrl: './insert-vectors.component.html',
-  styleUrl: './insert-vectors.component.css'
+  styleUrl: './insert-vectors.component.css',
 })
-export class InsertVectorsComponent implements OnInit,OnDestroy {
+export class InsertVectorsComponent implements OnInit, OnDestroy {
   @Input() vector: any;
   @Output() onAgregar = new EventEmitter();
   private subscription = new Subscription();
@@ -20,16 +34,16 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private supabaseService : SupabaseService,private toastr : ToastrService
+    private supabaseService: SupabaseService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       pregunta: [, Validators.required],
       respuesta: [, Validators.required],
-      estado: [true]
+      estado: [true],
     });
-
   }
 
   ngOnDestroy(): void {
@@ -38,12 +52,12 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
 
   cambioCheck(x: boolean): void {
     this.formulario.patchValue({
-      activo: x
+      activo: x,
     });
   }
 
   limpiarFormulario() {
-    this.formulario.reset(); 
+    this.formulario.reset();
   }
 
   get controlPregunta(): FormControl {
@@ -63,48 +77,42 @@ export class InsertVectorsComponent implements OnInit,OnDestroy {
       const pregunta = this.formulario.value.pregunta;
       const respuesta = this.formulario.value.respuesta;
       const estado = this.formulario.value.estado;
-  
+
       try {
         const user_id = this.supabaseService.getUserId();
-        
+
         if (!user_id) {
           throw new Error('El usuario no está autenticado.');
         }
-  
+
         const vectorData = {
           pregunta: pregunta,
           respuesta: respuesta,
           estado: estado,
-          user_id: user_id 
+          user_id: user_id,
         };
-  
+
         this.supabaseService.insert(vectorData).subscribe({
           next: () => {
-            this.toastr.success('Registro insertado con éxito','Éxito',{timeOut:1500});
+            this.toastr.success('Inserted successfully', 'Successfully', {
+              timeOut: 1500,
+            });
             this.onAgregar.emit();
           },
           error: (err: any) => {
-            this.toastr.error('Error al insertar el registro','Error',{timeOut:1500});
+            this.toastr.error('Error inserting record', 'Error', {
+              timeOut: 1500,
+            });
             console.error(err);
-          }
+          },
         });
-      } catch (error: any) { 
+      } catch (error: any) {
         this.toastr.error(error.message);
       }
-    }else{
-      this.toastr.error('Revise y complete todos los campos!','Error',{timeOut:1500});
+    } else {
+      this.toastr.error('Review and complete all fields!', 'Error', {
+        timeOut: 1500,
+      });
     }
   }
-  
-  
-  
-  
-  
-  }
-  
-  
-  
-  
-  
-
-
+}

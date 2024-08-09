@@ -71,14 +71,18 @@ export class UserUpdateComponent {
           .updateUser(email, password, userData, tokenFromURL)
           .subscribe({
             next: (response: any) => {
-              this.toastr.success('Contraseña cambiada con éxito!', 'Éxito', {
-                timeOut: 1500,
-              });
+              this.toastr.success(
+                'Password changed successfully!',
+                'Successfully',
+                {
+                  timeOut: 1500,
+                }
+              );
               this.servicioSupabase.setUser(response.user.id);
             },
             error: (err) => {
               this.toastr.error(
-                'Error al cambiar la contraseña. Ingrese una contraseña valida y diferente a la anterior.',
+                'Error changing password. Enter a valid password that is different from the previous one.',
                 'Error',
                 { timeOut: 1500 }
               );
@@ -87,13 +91,13 @@ export class UserUpdateComponent {
           });
       } else {
         this.toastr.error(
-          'No se pudo obtener el token de la URL. Ingrese una contraseña valida y diferente a la anterior.',
+          'Could not get token from URL. Enter a valid password and different from the previous one.',
           'Error',
           { timeOut: 1500 }
         );
       }
     } else {
-      this.toastr.error('Por favor, completa todos los campos correctamente.');
+      this.toastr.error('Please complete all fields correctly.');
     }
   }
 

@@ -19,14 +19,14 @@ export class SidenavComponent {
   cerrarSesion() {
     this.servicioSupabase.logout().subscribe({
       next: () => {
-        this.toastr.success('Cerro Sesión con éxito', 'Éxito', {
+        this.toastr.success('Successfully logout', 'Éxito', {
           timeOut: 1500,
         });
       },
       error: () => {
         localStorage.removeItem('access_token');
         localStorage.removeItem('user_id');
-        this.toastr.error('Error al Cerrar Sesión', 'Error', { timeOut: 1500 });
+        this.toastr.error('Logout Error', 'Error', { timeOut: 1500 });
       },
     });
   }

@@ -38,8 +38,8 @@ export class AutenticadoGuard implements CanActivate {
       //   icon: 'info',
       // });
       this.toastr.info(
-        'Necesitas iniciar sesión para acceder a este recurson',
-        'Atención!',
+        'You need to log in to access this resource',
+        'Attention!',
         { timeOut: 1500 }
       );
       this.router.navigate(['/user-login']);
